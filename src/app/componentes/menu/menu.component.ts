@@ -15,9 +15,13 @@ export class MenuComponent implements OnInit {
   }
 
   Juego(tipo: string) {
+    //this.getElementById('myNavbar').collapse('hide');
     switch (tipo) {
       case 'Adivina':
           this.router.navigate(['/Juegos/Adivina']);
+        break;
+      case 'BlackJack':
+          this.router.navigate(['/Juegos/BlackJack']);
         break;
       case 'Agilidad':
           this.router.navigate(['/Juegos/Agilidad']);

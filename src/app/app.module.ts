@@ -47,12 +47,13 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { MenuCardComponent } from './componentes/menu-card/menu-card.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
-import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
 import { ListadoDePaisesComponent } from './componentes/listado-de-paises/listado-de-paises.component';
 import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-google.component'
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
+import { BlackJackComponent } from './componentes/black-jack/black-jack.component';
+import { PiedraPapelTijeraComponent } from './componentes/ppt/piedra-papel-tijera.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,8 @@ import { SexoPipe } from './pipes/sexo.pipe';
     LoginComponent,
     AgilidadAritmeticaComponent,
     MenuComponent,
+    BlackJackComponent,
+    PiedraPapelTijeraComponent,
     AdivinaMasListadoComponent,
     AgilidadMasListadoComponent,
     ListadoComponent,
@@ -73,7 +76,6 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MenuCardComponent,
     CabeceraComponent,
     QuienSoyComponent,
-    AnagramaComponent,
     ListadoDePaisesComponent,
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
