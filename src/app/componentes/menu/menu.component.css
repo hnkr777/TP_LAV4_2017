@@ -1,0 +1,17 @@
+
+.menu-inline {
+    display: inline-block !important;
+}
+
+li {
+    cursor: pointer;
+}
+
+.navbar-brand {
+    cursor: pointer;
+}
+
+#brand {
+    color: white;
+    display: inline-block !important;
+}

@@ -15,23 +15,34 @@ export class MenuComponent implements OnInit {
   }
 
   Juego(tipo: string) {
-    //this.getElementById('myNavbar').collapse('hide');
     switch (tipo) {
       case 'Adivina':
-          this.router.navigate(['/Juegos/Adivina']);
-        break;
+        this.router.navigate(['/Juegos/Adivina']);
+      break;
       case 'BlackJack':
-          this.router.navigate(['/Juegos/BlackJack']);
-        break;
+        this.router.navigate(['/Juegos/BlackJack']);
+      break;
       case 'Agilidad':
-          this.router.navigate(['/Juegos/Agilidad']);
-        break;
+        this.router.navigate(['/Juegos/Agilidad']);
+      break;
+      case 'PPT':
+        this.router.navigate(['/Juegos/PPT']);
+      break;
+      case 'Anagrama':
+        this.router.navigate(['/Juegos/Anagrama']);
+      break;
+      case 'Tateti':
+        this.router.navigate(['/Juegos/Tateti']);
+      break;
       case 'AdivinaMasListado':
-          this.router.navigate(['/Juegos/AdivinaMasListado']);
-        break;
+        this.router.navigate(['/Juegos/AdivinaMasListado']);
+      break;
       case 'AgilidadaMasListado':
-          this.router.navigate(['/Juegos/AgilidadaMasListado']);
-        break;
+        this.router.navigate(['/Juegos/AgilidadaMasListado']);
+      break;
+      default:
+        this.router.navigate(['']);
+      break;
     }
   }
 

@@ -3,14 +3,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div id='content' style="text-align: center;">
-  <h1 id="titulo">
+  <h1 class="titulo">
     {{nuevoJuego.nombre}}!
   </h1>
 
   <div id="juego">
-
-    <!-- <label>ingrese numero: </label> -->
-    <!-- <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" /> -->
 
     <h3 id='lblCrupier' style="color: white;">
       <i class="fa fa-spinner fa-spin"></i> Suma del crupier: {{nuevoJuego.sumaCrupier}}</h3>
@@ -69,7 +66,7 @@
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">

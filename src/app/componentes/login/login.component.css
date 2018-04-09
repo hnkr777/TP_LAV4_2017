@@ -5,6 +5,14 @@ form {
     background:gray;
 }
 
+#login-form {
+    border-radius: 15px;
+    box-shadow: 0px 0px 50px 10px rgb(0, 0, 0);
+    background-color: rgb(30, 30, 30);
+    max-width: 800px;
+    min-width: 300px;
+}
+
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -44,7 +52,7 @@ button:hover {
 }
 
 img.avatar {
-    width: 40%;
+    width: 20%;
     border-radius: 50%;
 }
 

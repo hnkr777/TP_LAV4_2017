@@ -26,16 +26,16 @@
         </ul>
     </div>
   </nav-->
-<nav class="navbar navbar-inverse">
+<!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <!-- <span class="icon-bar"></span> -->
+        <span class="icon-bar"></span>
 
       </button>
       <a class="navbar-brand" routerLink="/Principal">Inicio</a>
     </div>
-    <!-- <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav coll">
         <li class="active">
           <a routerLink="/Juegos">Menú de Juegos</a>
@@ -66,6 +66,128 @@
             <span class="glyphicon glyphicon-log-out"></span> Salir</a>
         </li>
       </ul>
-    </div> -->
+    </div>
+  </div>
+</nav> -->
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid menu-inline">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" title="Página principal" (click)="Juego('')" data-toggle="collapse" data-target="#myNavbar">
+        <span>
+          <img src="assets/imagenes/utn.png" height="30px" alt="Logo"> <p id="brand">Sala de juegos</p></span>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav menu-inline">
+        <li class="active">
+          <a routerLink="/Juegos">Menú de Juegos</a>
+        </li>
+
+
+
+
+        <li>
+          <a (click)="Juego('Agilidad')">Agilidad</a> <!-- data-toggle="tooltip" title="Hooray!" -->
+        </li>
+        <li>
+          <a (click)="Juego('BlackJack')">Black Jack</a>
+        </li>
+        <li>
+          <a (click)="Juego('PPT')">PPT</a>
+        </li>
+        <li>
+          <a (click)="Juego('Adivina')">Adivina</a>
+        </li>
+        <li>
+          <a (click)="Juego('Anagrama')">Anagrama</a>
+        </li>
+        <li>
+          <a (click)="Juego('Tateti')">Tateti</a>
+        </li>
+
+        <li>
+          <a (click)="Juego('AdivinaMasListado')">Adivina+listado</a>
+        </li>
+        <li>
+          <a (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a>
+        </li>
+
+
+
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right menu-inline">
+        <li>
+          <a href="#">
+            <span class="glyphicon glyphicon-user"></span> Mis Datos</a>
+        </li>
+        <li>
+          <a href="/Login">
+            <span class="glyphicon glyphicon-log-out"></span> Salir</a>
+        </li>
+      </ul>
+
+      <!-- <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="#">Home</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">Page 1-1</a>
+            </li>
+            <li>
+              <a href="#">Page 1-2</a>
+            </li>
+            <li>
+              <a href="#">Page 1-3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Page 2</a>
+        </li>
+        <li>
+          <a href="#">Page 3</a>
+        </li>
+      </ul> -->
+
+    </div>
   </div>
 </nav>
+
+<!-- <nav class="navbar navbar-inverse">
+    <div class="container-fluid menu-inline">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#minavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <div class="collapse navbar-collapse" id="minavbar">
+        <ul class="nav navbar-nav menu-half">
+          <li class="active"><a href="#">Home</a></li>
+          <li class=""><a href="#">Page 1</a></li>
+          <li class=""><a href="#">Page 2</a></li> 
+          <li class=""><a href="#">Page 3</a></li> 
+        </ul>
+        <ul class="nav navbar-nav navbar-right menu-half">
+          <li class="menu-half"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li class="menu-half"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
