@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,11 +12,17 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
 export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
-  usuario = '';
-  clave= '';
+  nombre: string = '';
+  email: string = '';
+  cuit: number = 0;
+  sexo: string = 'm';
+  clave: string = '';
+  clave2: string = '';
+  terminos: boolean = false;
+
   progreso: number;
-  progresoMensaje="esperando..."; 
-  logeando=true;
+  progresoMensaje = "esperando...";
+  logeando = true;
   ProgresoDeAncho:string;
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
@@ -23,25 +30,39 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router) {
-      this.progreso=0;
-      this.ProgresoDeAncho="0%";
-
+      this.progreso = 0;
+      this.ProgresoDeAncho = "0%";
   }
 
   ngOnInit() {
   }
 
+  registrarse() {
+    alert(
+      'Nombre: ' + this.nombre
+      +'\nEmail: ' + this.email
+      +'\nCuit: ' + this.cuit
+      +'\nSexo: ' + this.sexo
+      +'\nClave: ' + this.clave
+      +'\nTerminos: ' + this.terminos
+    );
+  }
+
   Entrar() {
-    if (this.usuario === 'admin' && this.clave === 'admin') {
+    if (this.nombre === 'admin' && this.clave === 'admin') {
       this.router.navigate(['/Principal']);
     }
   }
+
+  toggleTerminos() {
+    this.terminos = !this.terminos;
+  }
+
   MoverBarraDeProgreso() {
-    
     this.logeando=false;
     this.clase="progress-bar progress-bar-danger progress-bar-striped active";
     this.progresoMensaje="NSA spy..."; 
-    let timer = TimerObservable.create(200, 50);
+    let timer = TimerObservable.create(100, 20);
     this.subscription = timer.subscribe(t => {
       console.log("inicio");
       this.progreso=this.progreso+1;
@@ -73,7 +94,7 @@ export class LoginComponent implements OnInit {
           this.subscription.unsubscribe();
           this.Entrar();
           break;
-      }     
+      }
     });
     //this.logeando=true;
   }

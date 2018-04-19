@@ -11,12 +11,14 @@ export class Carta {
     enElMazo: boolean;      // si la carta todavia esta en el mazo, es verdadero
     nombreLargo: string;    // nombre completo de la carta
     indexJugador: number;   // indice del jugador que tiene la carta
+    i: number;
 
     constructor(numero: number, tipo: Tipo, rutaImg: string) {
         this.numero = numero;
         this.tipo = tipo;
         this.rutaImagen = rutaImg;
         this.enElMazo = false;
+        this.i = -50;
         let tmp: string;
         switch (numero) {
             case 1:
@@ -44,6 +46,32 @@ export class Carta {
     }
     
     public Flip() {
+        let obj: HTMLElement = document.getElementById(this.numero+'_'+this.tipo);
+        var i = -50;
+        let iv = this.draw;
+        
+        //setInterval(iv, 100, this, obj, i[0], iv);
         this.rutaImagen = './assets/imagenes/cards/lg/'+this.numero+'_'+this.tipo+'.png';
+        obj.setAttribute('src', this.rutaImagen);
+    }
+
+    private draw(carta: Carta, obj: HTMLElement, i, iv: any) {
+        console.log('i = '+this.i);
+        i++;
+        if (i < 0) {
+            obj.style.width = (-1*i).toString()+'px';
+            console.log('i < 0');
+        } else if(i==0) {
+            carta.rutaImagen = './assets/imagenes/cards/lg/'+carta.numero+'_'+carta.tipo+'.png';
+            obj.setAttribute('src', carta.rutaImagen);
+            console.log('i == 0');
+        } else if (i == 100) {
+            clearInterval(iv);
+            console.log('clearInterval');
+        } else if (i > 0) {
+            obj.style.width = i.toString()+'px';
+            console.log('i > 0');
+        }
     }
 }
+

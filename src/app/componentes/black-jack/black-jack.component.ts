@@ -10,7 +10,6 @@ import { BlackJack } from '../../clases/blackjack/juego-black-jack'
 
 export class BlackJackComponent implements OnInit {
   @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
-
   nuevoJuego: BlackJack;
   Mensajes: string;
   contador: number;
@@ -21,6 +20,10 @@ export class BlackJackComponent implements OnInit {
       this.ocultarVerificar=false;
   }
   
+  guardar() {
+    this.enviarJuego.emit(this);
+  }
+
   pedir() {
     this.nuevoJuego.Pedir(1);  // TEMPORAL: indice jugador
     this.Mensajes = 'Pedir nueva carta';
@@ -41,6 +44,9 @@ export class BlackJackComponent implements OnInit {
 
   verificar()
   {
+    if(this.nuevoJuego.verificar()) {
+      this.MostrarMensaje("", true);
+    }
     /*this.contador++;
     this.ocultarVerificar=true;
     console.info("numero Secreto:",this.nuevoJuego.gano);  
@@ -84,22 +90,20 @@ export class BlackJackComponent implements OnInit {
     console.info("numero Secreto:",this.nuevoJuego.gano);*/
   }  
 
-  MostrarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
-    this.Mensajes=mensaje;    
+  MostrarMensaje(mensaje: string = "este es el mensaje", ganador: boolean = false) {
+    this.Mensajes = mensaje;
     var x = document.getElementById("snackbar");
-    if(ganador)
-      {
-        x.className = "show Ganador";
-      }else{
-        x.className = "show Perdedor";
-      }
-    var modelo=this;
-    setTimeout(function(){ 
+    if(ganador) {
+      x.className = "show Ganador";
+    } else {
+      x.className = "show Perdedor";
+    }
+    var modelo = this;
+    setTimeout(function() { 
       x.className = x.className.replace("show", "");
       modelo.ocultarVerificar=false;
-     }, 3000);
+    }, 3000);
     console.info("objeto",x);
-  
   }
 
   ngOnInit() {

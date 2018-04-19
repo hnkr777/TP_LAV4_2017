@@ -9,6 +9,7 @@ export class JuegoAdivina extends  Juego {
     
       
       }
+
     public verificar() {
         if (this.numeroIngresado == this.numeroSecreto) {
           this.gano = true;
@@ -19,11 +20,13 @@ export class JuegoAdivina extends  Juego {
           return false;
         }
      }
+
      public generarnumero() {
         this.numeroSecreto = Math.floor((Math.random() * 100) + 1);
         console.info('numero Secreto:' + this.numeroSecreto);
         this.gano = false;
       }
+      
       public retornarAyuda() {
         if (this.numeroIngresado < this.numeroSecreto) {
           return "Falta";

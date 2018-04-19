@@ -3,7 +3,7 @@ import { Juego } from '../juego'
 import { Player } from './player'
 import { Mazo } from './mazo'
 import { Carta } from './carta'
-
+import { BlackJackComponent } from "../../componentes/black-jack/black-jack.component";
 import { setInterval } from 'timers';
 
 export class BlackJack extends Juego {
@@ -28,29 +28,42 @@ export class BlackJack extends Juego {
 
     public verificar(): boolean { 
         let res: number = this.checkAgainstCrupier(this.jugadores[1]);
+        let msg: string;
         if (res < 0) {
+            this.jugadores[0].ganadas++;
+            this.jugadores[1].perdidas++;
+            this.jugadores[0].puntaje += 10;
             if(res == -1) {
                 document.getElementById('lblJugador').style.color = 'red';
-                this.Mensaje('Ganó el crupier, el jugador se pasó');
+                msg = 'Ganó el crupier, el jugador se pasó';
             } else if (res == -2) {
-                this.Mensaje('Ganó el crupier, obtuvo Black Jack');
+                msg = 'Ganó el crupier, obtuvo Black Jack';
+                this.jugadores[0].puntaje += 10;
             } else {
-                this.Mensaje('Ganó el crupier, obtuvo la jugada más alta');
+                msg = 'Ganó el crupier, obtuvo la jugada más alta';
             }
         } else if (res > 0) {
+            this.jugadores[1].ganadas++;
+            this.jugadores[0].perdidas++;
+            this.jugadores[1].puntaje += 10;
             if(res == 1) {
                 document.getElementById('lblCrupier').style.color = 'red';
-                this.Mensaje('Ganó el jugador, el crupier se pasó');
+                msg = 'Ganó el jugador, el crupier se pasó';
             } else if (res == 2) {
-                this.Mensaje('Ganó el jugador, obtuvo Black Jack');
+                msg = 'Ganó el jugador, obtuvo Black Jack';
+                this.jugadores[1].puntaje += 10;
             } else {
-                this.Mensaje('Ganó el jugador, obtuvo la jugada más alta');
+                msg = 'Ganó el jugador, obtuvo la jugada más alta';
             }
         } else {
-            this.Mensaje('Empate');
+            msg = 'Empate';
+            this.jugadores[0].empatadas++;
+            this.jugadores[1].empatadas++;
         }
 
+        this.Mensaje(msg);
         this.manoTerminada = true;
+        
         return res > 0;
     }
 
@@ -86,7 +99,7 @@ export class BlackJack extends Juego {
         let crupier: Player = this.jugadores[0];
         let carta: Carta = this.jugadores[0].cartas[1];
         carta.Flip();
-        document.getElementById(carta.numero+'_'+carta.tipo).setAttribute('src', carta.rutaImagen);
+        //document.getElementById(carta.numero+'_'+carta.tipo).setAttribute('src', carta.rutaImagen);
         while (crupier.suma < 17 && this.mazo.cartasRestantes > 0) {
             this.Pedir(0); // indice cero del crupier
         }
@@ -101,16 +114,23 @@ export class BlackJack extends Juego {
         let carta: Carta;
         carta = this.mazo.nuevaCarta(false);
         if(carta===null) {
-            this.manoTerminada = true;
-            this.finalizarMano();
-            this.mazo.reiniciar();
-            this.Mensaje('Mazo sin cartas, mezclando...');
+            this.finalizarRonda();
             return;
         }
         this.sacarCarta(carta, index); // indice 1 temporal, jugador 1
         this.jugadores[index].recibirCarta(carta);
         if (this.jugadores[index].suma > 21) {
-            this.verificar();
+            if(index!=0) this.verificar();
+        }
+    }
+
+    private finalizarRonda() {
+        this.manoTerminada = true;
+        this.finalizarMano();
+        this.mazo.reiniciar();
+        this.Mensaje('Mazo sin cartas, mezclando...');
+        for (let index = 0; index <= this.playerCount; index++) {
+            this.jugadores[index].puntaje = 0;
         }
     }
 
@@ -127,10 +147,7 @@ export class BlackJack extends Juego {
             for (i = this.playerCount; i >= 0; i--) {
                 carta = this.mazo.nuevaCarta(mano==1&&i==0?true:false);
                 if(carta===null) {
-                    this.manoTerminada = true;
-                    this.finalizarMano();
-                    this.mazo.reiniciar();
-                    this.Mensaje('Mazo sin cartas, mezclando...');
+                    this.finalizarRonda();
                     return;
                 }
                 this.sacarCarta(carta, i);

@@ -225,6 +225,19 @@ span.psw {
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+@keyframes flip-card-1 {
+    0% {
+        width: 100%;
+        left: 0px;
+        height: 100%;
+    }
+    100% {
+        width: 0%;
+        left: 50px;
+        height: 50%;
+    }
+}
+
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;} 
     to {bottom: 30px; opacity: 1;}

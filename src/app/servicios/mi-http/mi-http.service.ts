@@ -39,7 +39,6 @@ export class MiHttpService {
       .catch( ( err: any ) => Observable.throw(err.json().error || 'Server error'));
   }
 
-
   private extractData ( res: Response )
   {
     return res.json() || {};

@@ -1,5 +1,41 @@
 
- <div class="container">
+<div class="main-w3layouts wrapper">
+  <h1 class="titulo">Registro</h1>
+  <div class="main-agileinfo">
+    <div class="agileits-top">
+      <form id="formRegistro" (submit)="registrarse();" action="/index.php" method="post">
+        <input id="txtNombre" [(ngModel)]="nombre" class="inputField" type="text" name="usuario" placeholder="Nombre" required>
+        <input id="txtEmail" [(ngModel)]="email" class="inputField" type="email" name="email" placeholder="Email" required>
+        <input id="txtCuit" [(ngModel)]="cuit" class="inputField" type="number" name="cuit" placeholder="CUIT" required>
+        <label class="radio-inline"><input type="radio" [(ngModel)]="sexo" name="sexo" checked value="m">Masculino</label>
+        <label class="radio-inline"><input type="radio" [(ngModel)]="sexo" name="sexo" value="f">Femenino</label>
+        <input id="txtClave" [(ngModel)]="clave" class="inputField" type="password" name="clave" placeholder="Clave" required>
+        <input id="txtRpClave" [(ngModel)]="clave2" class="inputField w3lpass" type="password" name="clave" placeholder="Confirme clave" required>
+        <div class="wthree-text">
+          <div class="checkbox">
+            <label class="anim">
+              <input type="checkbox" (change)="toggleTerminos()" class="checkbox" required=""> &nbsp; Acepto los términos y condiciones
+            </label>
+          </div>
+          <div class="clear"> </div>
+        </div>
+        <button class="btn btn-default" type="submit">Registrarse</button>
+      </form>
+      <p>¿Ya tiene cuenta?
+        <a href="#"> Ingrese aquí</a>
+      </p>
+    </div>
+  </div>
+  <div class="w3copyright-agile">
+    <p class="titulo">© 2018 UTN.FRA | Design by
+      <a href="http://localhost/">hnkr</a>
+    </p>
+  </div>
+  <app-decorations></app-decorations>
+</div>
+
+<!-- 
+<div class="container">
   <div class="jumbotron" id="login-form">
     <form action="return true;">
       <div class="imgcontainer">
@@ -8,12 +44,12 @@
 
       <div class="container">
         <label><b>Usuario</b></label>
-        <input type="text" placeholder="Usuario"  [(ngModel)]="usuario"  name="uname" required>
+        <input type="text" placeholder="Usuario" [(ngModel)]="usuario"  name="uname" required>
 
         <label><b>Clave</b></label>
-        <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
+        <input type="password" placeholder="Clave" [(ngModel)]="clave" name="psw" required>
             
-        <button *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar</button>
+        <button *ngIf="logeando" (click)="MoverBarraDeProgreso()">Ingresar</button>
        
         <div *ngIf="!logeando" class="progress">
             <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho" >
@@ -32,7 +68,7 @@
      
     </form>
   </div>
-</div>
+</div> -->
 
 
 <!--div style="margin: 20% auto; width: 30%;">

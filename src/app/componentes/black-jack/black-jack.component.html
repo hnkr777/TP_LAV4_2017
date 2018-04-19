@@ -9,7 +9,7 @@
 
   <div id="juego">
 
-    <h3 id='lblCrupier' style="color: white;">
+    <h3 id='lblCrupier' style="color: white;">Puntos: {{nuevoJuego.jugadores[0].puntaje}} &nbsp;
       <i class="fa fa-spinner fa-spin"></i> Suma del crupier: {{nuevoJuego.sumaCrupier}}</h3>
     <img id="info" alt="Información" data-toggle="modal" data-target="#myModal" title="Reglas del juego">
     <br>
@@ -26,6 +26,7 @@
       <div class="parent-box" id="space">
         <b>
           <h4 id="lblMensaje"></h4>
+          <!-- <div id="snackbar">{{Mensajes}}</div> -->
         </b>
       </div>
 
@@ -36,7 +37,7 @@
       </div>
 
     </div>
-    <h3 id='lblJugador' style="color: white;">
+    <h3 id='lblJugador' style="color: white;">Puntos: {{nuevoJuego.jugadores[1].puntaje}} &nbsp;
       <i class="fa fa-spinner fa-spin"></i> Suma del jugador: {{nuevoJuego.jugadores[1].suma}}</h3>
 
     <h2>
@@ -60,7 +61,7 @@
 
   </div>
 </div>
-<div id="snackbar">{{Mensajes}}</div>
+
 
 
 

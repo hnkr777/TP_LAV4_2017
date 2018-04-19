@@ -3,8 +3,8 @@ import { MiHttpService } from './mi-http/mi-http.service';
 
 @Injectable()
 export class ArchivosJugadoresService {
-
-  api="http://localhost:8080/jugadoresarchivo/apirestjugadores/";
+  // api="http://localhost:8080/jugadoresarchivo/apirestjugadores/";
+  api="http://localhost/jugadoresarchivo/apirestjugadores/";
   peticion:any;
   constructor( public miHttp: MiHttpService ) {
     

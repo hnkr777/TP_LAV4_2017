@@ -6,14 +6,20 @@ export class Player extends Jugador {
     nombre: string;
     cartas: Array<Carta>;
     suma: number;
-    monto: number;
+    puntaje: number;
+    ganadas: number;
+    perdidas: number;
+    empatadas: number;
 
     constructor(nombre?: string) {
         super();
         this.nombre = nombre !== undefined ? nombre: null;
         this.cartas = new Array<Carta>();
         this.suma = 0;
-        this.monto = 0;
+        this.puntaje = 0;
+        this.ganadas = 0;
+        this.perdidas = 0;
+        this.empatadas = 0;
     }
 
     public recibirCarta(carta: Carta) {

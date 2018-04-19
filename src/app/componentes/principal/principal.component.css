@@ -1,3 +1,4 @@
+
 .imagenDeMenu{
 width: 80px;
 height: 70px;
@@ -10,4 +11,43 @@ height: 70px;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #100000;
-    }
+}
+
+#main-panel {
+    width: 65%;
+    background: rgba(0, 0, 0, 0.32);
+    background-size: cover;
+    margin: 2em auto;
+}
+
+.list-group-item {
+    background-color: rgba(0, 0, 0, 0.32);
+}
+
+.list-group-item:hover {
+    background-color: rgba(40, 40, 40, 0.64);
+    transition-duration: 0.4s;
+    
+}
+
+.list-group-item:hover .media-heading {
+    color: rgb(255, 207, 47);
+}
+
+.media-body p {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    text-align: left;
+}
+
+.media-body {
+    
+}
+
+.media-heading {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    
+    
+}
+

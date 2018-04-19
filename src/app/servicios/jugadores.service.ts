@@ -3,10 +3,10 @@ import { ArchivosJugadoresService}from './archivos-jugadores.service'
 @Injectable()
 export class JugadoresService {
 
-  //peticion:any;
+  peticion:any;
   constructor( public miHttp: ArchivosJugadoresService ) {
-   // this.peticion = this.miHttp.traerJugadores();
-//    this.peticion = this.miHttp.httpGetO("https://restcountries.eu/rest/v2/all");
+    //this.peticion = this.miHttp.traerJugadores('');
+    //this.peticion = this.miHttp.miHttp.httpGetO("https://restcountries.eu/rest/v2/all");
   }
 
 
@@ -15,11 +15,11 @@ filtrado:any;
   traertodos(ruta : string,filtro: string) 
   {
     return this.miHttp.traerJugadores(ruta).then(data=>{
-      console.info("jugadores service",data);
+      //console.info("jugadores service",data);
 
       this.filtrado=data;
 
-     let  ganador: boolean;
+      let  ganador: boolean;
       if(filtro=="ganadores")
       {
         ganador= true;
@@ -29,16 +29,13 @@ filtrado:any;
         ganador= false;
       }
 
-      this.filtrado =this.filtrado.filter(
-        data => data.gano === ganador  || filtro=="todos" ); return this.filtrado}
-      )
-      .catch(errror=>{console.log("error")
-      
-
-
-    return this.filtrado;
-      
-
+      this.filtrado = this.filtrado.filter(
+        data => data.gano === ganador || filtro=="todos"
+      );
+      return this.filtrado
+    }).catch(error=>{
+      console.log("error")
+      return this.filtrado;
     });
   }
 

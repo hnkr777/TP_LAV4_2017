@@ -56,6 +56,7 @@ import { BlackJackComponent } from './componentes/black-jack/black-jack.componen
 import { PiedraPapelTijeraComponent } from './componentes/ppt/piedra-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
+import { DecorationsComponent } from './decorations/decorations.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
     InputJugadoresComponent,
     SexoPipe,
     TatetiComponent,
-    AnagramaComponent
+    AnagramaComponent,
+    DecorationsComponent
   ],
   imports: [
     BrowserModule,

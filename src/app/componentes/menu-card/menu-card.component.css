@@ -1,6 +1,6 @@
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px 0 rgb(0,0,0);
     transition: 1.3s;
     border-radius: 15px; /* 5px rounded corners */
     max-width: 300px;
@@ -11,6 +11,14 @@
     background-color: #DEF3A6;
     text-align: center;
     box-shadow: 0px 0px 50px 10px rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.32);
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgb(0, 40, 60);
+    color: yellow;
 }
 
 /* Add rounded corners to the top left and the top right corner of the image */
@@ -22,7 +30,8 @@ img {
 
 /* Add some padding inside the card container */
 .container {
-    /*padding: 2px 16px;*/
+    position: relative; 
+	overflow: hidden;
     text-align: center;
 }
 
