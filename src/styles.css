@@ -74,9 +74,9 @@ h1 {
 
 .radio-inline {
     font-size: 0.9em;
-    margin-left: 20px;
+    margin-left: 200px;
     font-weight: 100;
-    width: 94.5%;
+    
     display: inline;
     border: none;
     padding: 0.8em;
@@ -179,67 +179,6 @@ input[type="submit"]:hover {
     cursor: pointer;
     position: relative;
 }
-input.checkbox {
-    background:#1d2027;
-	cursor: pointer;
-    width: 1.2em;
-    height: 1.2em;
-}
-
-input.checkbox:before {
-	content: "";
-	position: absolute;
-	width: 1.2em;
-	height: 1.2em;
-	background: inherit;
-	cursor: pointer;
-}
-input.checkbox:after {
-	content: ""; 
-	position: absolute;
-	top: 0px;
-	left: 0;
-	z-index: 1;
-	width: 1.2em;
-	height: 1.2em;
-	border: 1px solid #fff; 
-	-webkit-transition: .4s ease-in-out;
-	-moz-transition: .4s ease-in-out;
-	-o-transition: .4s ease-in-out;
-	transition: .4s ease-in-out;
-}
-input.checkbox:checked:after {
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	height: .5rem;
-	border-color: #fff;
-	border-top-color: transparent;
-	border-right-color: transparent;
-}
-.anim input.checkbox:checked:after {
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	height: .5rem;
-	border-color: transparent;
-	border-right-color: transparent; 
-	animation: .4s rippling .4s ease;
-	animation-fill-mode: forwards;
-}
-@keyframes rippling {
-	50% {
-		border-left-color: #fff;
-	}
-	100% {
-		border-bottom-color: #fff;
-		border-left-color: #fff;
-	}
-} 
 
 .w3copyright-agile {
     margin: 2em 0 1em;
@@ -268,8 +207,10 @@ input.checkbox:checked:after {
 
 .wrapper { 
 	position: relative; 
-	overflow: hidden;
-} 
+    overflow: hidden;
+    bottom: 0vmax;
+    
+}
 
 /*-- responsive-design --*/ 
 @media(max-width:1440px){
@@ -484,24 +425,6 @@ body {
 }
 
 
-@keyframes reparto {
-    0% {
-        top: -140px;
-        
-        position: fixed;
-    }
-    99% {
-        top: 320px;
-        
-        position: fixed;
-    }
-    100% {
-        top: 0px;
-        left: initial;
-        position: inherit;
-    }
-}
-
 
 .modal {
     text-align: center;
@@ -521,3 +444,10 @@ body {
     text-align: left;
     vertical-align: middle;
 }
+
+html, body, .wrapper, .container { 
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+

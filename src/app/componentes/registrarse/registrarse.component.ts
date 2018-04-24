@@ -1,55 +1,58 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import { MiHttpService } from "../../servicios/mi-http/mi-http.service";
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
-import { isDefined } from '@angular/compiler/src/util';
+
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-registrarse',
+  templateUrl: './registrarse.component.html',
+  styleUrls: ['./registrarse.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegistrarseComponent implements OnInit {
 
   private subscription: Subscription;
   nombre: string = '';
   email: string = '';
-  cuit: number = 0;
+  cuit: number;
   sexo: string = 'm';
   clave: string = '';
   clave2: string = '';
   terminos: boolean = false;
 
-  token: any;
-
   progreso: number;
   progresoMensaje = "esperando...";
   logeando = true;
   ProgresoDeAncho:string;
-  xml: XMLHttpRequest;
+  vali: FormControl;
+  formRegistro: FormGroup;
 
-  clase="progress-bar progress-bar-info progress-bar-striped ";
+  clase = "progress-bar progress-bar-info progress-bar-striped ";
 
-  constructor(
-    private xhr: MiHttpService,
-    private route: ActivatedRoute,
-    private router: Router) {
-      this.progreso = 0;
-      this.ProgresoDeAncho = "0%";
+  constructor( /*private miConstructor: FormBuilder,*/ private xhr: MiHttpService, private route: ActivatedRoute, private router: Router) { 
+    this.progreso = 0;
+    this.ProgresoDeAncho = "0%";
+    this.vali = new FormControl('', [Validators.email]);
+  
+    /*this.formRegistro = this.miConstructor.group({
+      usuario: this.vali
+    });*/
   }
 
   ngOnInit() {
   }
 
+
   completado(res: Response) {
-    console.info('¡Acceso concedido!');
-    localStorage.setItem('token', JSON.parse(JSON.stringify(res.json())).token);
+    console.info('Usuario creado.');
+    
     return res.json() || {};
   }
 
   error( error: Response | any ) {
-    console.error('¡Acceso denegado!');
+    console.error('¡Error al crear el usuario!');
     var msg: string = JSON.stringify(error.json());
     var obj = JSON.parse(msg);
     if((obj.error!==undefined)) console.log(obj.error);
@@ -57,32 +60,31 @@ export class LoginComponent implements OnInit {
     return error;
   }
 
-  ingresar() {
-    this.xhr.httpPostS('/login', {email: this.email, clave: this.clave}, this.completado, this.error, ()=>{
-      this.router.navigate(['/Principal']);
+  registrarse() {
+    if(this.clave!=this.clave) return;
+    this.xhr.httpPostS('/jugadoresarchivo/apirestjugadores/altausuario/', {
+      nombre: this.nombre,
+      email: this.email,
+      clave: this.clave,
+      cuit: this.cuit,
+      sexo: this.sexo
+    }, this.completado, this.error, ()=>{
+      this.xhr.httpPostS('/login', {email: this.email, clave: this.clave}, (res: Response)=>{
+        localStorage.setItem('token', JSON.parse(JSON.stringify(res.json())).token);
+      }, err=>{ console.error('No se pudo loguear al servidor.');}, ()=>{
+        this.router.navigate(['/Principal']);
+      });
     });
-  }
   
-  logout(){
-    sessionStorage.removeItem('token');
-    localStorage.removeItem('token');
-    location.reload();
-  }
-
-  getToken(){ // para usar:  headers: {"token": getToken()} dentro de la llamada (parametros)
-    if(localStorage.getItem('token') !== null){
-      return localStorage.getItem('token');
-    }
-    if(sessionStorage.getItem('token') !== null){
-      return sessionStorage.getItem('token');
-    }
-    return false;
-  }
-
-  Entrar() {
-    if (this.nombre === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
-    }
+    
+    /*alert(
+      'Nombre: ' + this.nombre
+      +'\nEmail: ' + this.email
+      +'\nCuit: ' + this.cuit
+      +'\nSexo: ' + this.sexo
+      +'\nClave: ' + this.clave
+      +'\nTerminos: ' + this.terminos
+    );*/
   }
 
   toggleTerminos() {
@@ -123,7 +125,7 @@ export class LoginComponent implements OnInit {
         case 100:
           console.log("final");
           this.subscription.unsubscribe();
-          this.Entrar();
+          //this.Entrar();
           break;
       }
     });

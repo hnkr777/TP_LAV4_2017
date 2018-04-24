@@ -2,7 +2,7 @@
 form {
     border: 10px solid #f1f1f1;
     padding: 10px;
-    background:gray;
+    background:rgba(128, 128, 128, 0);
 }
 
 #login-form {
@@ -54,6 +54,10 @@ button:hover {
 img.avatar {
     width: 20%;
     border-radius: 50%;
+}
+
+.checkbox {
+    /*background-color: transparent;*/
 }
 
 .container {

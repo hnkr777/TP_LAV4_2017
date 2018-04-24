@@ -1,96 +1,30 @@
 
 <div class="main-w3layouts wrapper">
-  <h1 class="titulo">Registro</h1>
+  <h1 class="titulo">Ingreso</h1>
   <div class="main-agileinfo">
     <div class="agileits-top">
-      <form id="formRegistro" (submit)="registrarse();" action="/index.php" method="post">
-        <input id="txtNombre" [(ngModel)]="nombre" class="inputField" type="text" name="usuario" placeholder="Nombre" required>
+      <form id="formRegistro" (submit)="ingresar();" action="/login" method="post">
         <input id="txtEmail" [(ngModel)]="email" class="inputField" type="email" name="email" placeholder="Email" required>
-        <input id="txtCuit" [(ngModel)]="cuit" class="inputField" type="number" name="cuit" placeholder="CUIT" required>
-        <label class="radio-inline"><input type="radio" [(ngModel)]="sexo" name="sexo" checked value="m">Masculino</label>
-        <label class="radio-inline"><input type="radio" [(ngModel)]="sexo" name="sexo" value="f">Femenino</label>
         <input id="txtClave" [(ngModel)]="clave" class="inputField" type="password" name="clave" placeholder="Clave" required>
-        <input id="txtRpClave" [(ngModel)]="clave2" class="inputField w3lpass" type="password" name="clave" placeholder="Confirme clave" required>
         <div class="wthree-text">
           <div class="checkbox">
             <label class="anim">
-              <input type="checkbox" (change)="toggleTerminos()" class="checkbox" required=""> &nbsp; Acepto los términos y condiciones
+              <input type="checkbox" (change)="toggleTerminos()" class="checkbox" required=""> &nbsp; Recordarme
             </label>
           </div>
           <div class="clear"> </div>
         </div>
-        <button class="btn btn-default" type="submit">Registrarse</button>
+        <button class="btn btn-default" type="submit">Ingresar</button>
       </form>
-      <p>¿Ya tiene cuenta?
-        <a href="#"> Ingrese aquí</a>
+      <p>¿No tiene cuenta?
+        <a routerLink="/Registro"> Registrese aquí</a>
       </p>
     </div>
   </div>
   <div class="w3copyright-agile">
     <p class="titulo">© 2018 UTN.FRA | Design by
-      <a href="http://localhost/">hnkr</a>
+      <a routerLink="/localhost">hnkr</a>
     </p>
   </div>
   <app-decorations></app-decorations>
 </div>
-
-<!-- 
-<div class="container">
-  <div class="jumbotron" id="login-form">
-    <form action="return true;">
-      <div class="imgcontainer">
-        <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" max-width="104" >
-      </div>
-
-      <div class="container">
-        <label><b>Usuario</b></label>
-        <input type="text" placeholder="Usuario" [(ngModel)]="usuario"  name="uname" required>
-
-        <label><b>Clave</b></label>
-        <input type="password" placeholder="Clave" [(ngModel)]="clave" name="psw" required>
-            
-        <button *ngIf="logeando" (click)="MoverBarraDeProgreso()">Ingresar</button>
-       
-        <div *ngIf="!logeando" class="progress">
-            <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho" >
-              {{progresoMensaje}} - {{progreso}}%
-            </div>
-        </div>
-       
-        <input type="checkbox" checked="checked"> Recordar mis datos
-      </div>
-
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancelar</button>
-        <button type="button" class="aceptbtn" routerLink="/Registro" >Registrarse</button>
-        <span class="psw">¿Te olvidaste <a href="#">la clave?</a></span>
-      </div>
-     
-    </form>
-  </div>
-</div> -->
-
-
-<!--div style="margin: 20% auto; width: 30%;">
-  <div class="row">
-    <div class="col-lg-6">
-      Usuario
-    </div>
-    <div class="col-lg-6">
-      <input type="text"  [(ngModel)]="usuario">
-    </div>
-  </div>
-  <div class="row" style="margin-top: 5px">
-    <div class="col-lg-6">
-      Clave
-    </div>
-    <div class="col-lg-6">
-      <input type="password" [(ngModel)]="clave">
-    </div>
-  </div>
-  <div class="row" style="text-align: center; margin-top: 10px">
-    <div class="col-lg-12">
-      <button (click)="Entrar()" class="btn btn-info btn-lg" >Entrar</button>
-    </div>
-  </div>
-</div-->

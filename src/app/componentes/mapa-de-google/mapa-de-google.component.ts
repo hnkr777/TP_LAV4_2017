@@ -21,7 +21,7 @@ export class MapaDeGoogleComponent implements OnInit {
   }
 
 
-  
+  mapClicked() {}
 
 
   

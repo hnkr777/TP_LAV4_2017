@@ -257,3 +257,22 @@ span.psw {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+
+
+@keyframes reparto {
+    0% {
+        top: -140px;
+        
+        position: fixed;
+    }
+    99% {
+        top: 320px;
+        
+        position: fixed;
+    }
+    100% {
+        top: 0px;
+        left: initial;
+        position: inherit;
+    }
+}

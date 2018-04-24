@@ -57,6 +57,7 @@ import { PiedraPapelTijeraComponent } from './componentes/ppt/piedra-papel-tijer
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
 import { DecorationsComponent } from './decorations/decorations.component';
+import { RegistrarseComponent } from './componentes/registrarse/registrarse.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { DecorationsComponent } from './decorations/decorations.component';
     SexoPipe,
     TatetiComponent,
     AnagramaComponent,
-    DecorationsComponent
+    DecorationsComponent,
+    RegistrarseComponent
   ],
   imports: [
     BrowserModule,

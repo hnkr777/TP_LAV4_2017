@@ -25,6 +25,7 @@ import { BlackJackComponent } from '../componentes/black-jack/black-jack.compone
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { PiedraPapelTijeraComponent } from '../componentes/ppt/piedra-papel-tijera.component';
+import { RegistrarseComponent } from '../componentes/registrarse/registrarse.component';
 
 
 // declaro donde quiero que se dirija
@@ -34,7 +35,7 @@ const MiRuteo = [
 {path: 'Login' , component: LoginComponent},
 {path: 'Mapa' , component: MapaDeGoogleComponent},
 {path: 'QuienSoy' , component: QuienSoyComponent},
-{path: 'Registro' , component: RegistroComponent},
+{path: 'Registro' , component: RegistrarseComponent},
 {path: 'Principal' , component: PrincipalComponent},
 {path: 'Listado' , component: ListadoComponent},
 {path: 'Paises' , component: ListadoDePaisesComponent},

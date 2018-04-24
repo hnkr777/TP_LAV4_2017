@@ -22,11 +22,13 @@ height: 70px;
 
 .list-group-item {
     background-color: rgba(0, 0, 0, 0.32);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .list-group-item:hover {
-    background-color: rgba(40, 40, 40, 0.64);
-    transition-duration: 0.4s;
+    box-shadow: 0 0 8px 4px rgba(128, 128, 128, 0.5);
+    background-color: rgba(70, 70, 70, 0.32);
+    transition-duration: 0.7s;
     
 }
 
