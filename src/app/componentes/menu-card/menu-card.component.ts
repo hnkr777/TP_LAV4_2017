@@ -1,3 +1,4 @@
+
 import { Component, OnInit, AfterViewInit, Renderer2, Directive, HostListener, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -6,9 +7,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   templateUrl: './menu-card.component.html',
   styleUrls: ['./menu-card.component.css']
 })
-@Directive({
+/*@Directive({
   selector: '[scroll]'
-})
+})*/
 export class MenuCardComponent implements OnInit, AfterViewInit {
   scrolled: boolean;
 
@@ -22,21 +23,27 @@ export class MenuCardComponent implements OnInit, AfterViewInit {
   }
 
   @HostListener('mousewheel', ['$event']) onMousewheel(event) {
-    if(event.wheelDelta < 0) {
-      this.sd_event(null);
+    this.sd_event_up(event.wheelDelta);
+  }
+
+  sd_event_up(delta: number) {
+    if(delta < 0) {
+      this.sd_event_down(null);
       this.scrolled = true;
     }
-    if(event.wheelDelta > 0) {
-      if(this.scrolled && window.scrollY == 0 ) {
+    if(delta >= 0) {
+      if(this.scrolled && (window.scrollY == 0  || delta == 0) ) {
         this.renderer.removeClass(document.getElementsByClassName('content').item(0), "scrolled");
+        //this.renderer.setStyle(document.getElementsByClassName('content').item(0), "display", "none");
         this.renderer.removeClass( document.getElementsByClassName('hero').item(0), "scrolled");
       }
     }
   }
 
-  sd_event(event: any) {
+  sd_event_down(event: any) {
     this.scrolled = true;
     this.renderer.addClass(document.getElementsByClassName('content').item(0), "scrolled");
+    //this.renderer.setStyle(document.getElementsByClassName('content').item(0), "display", "flex");
     this.renderer.addClass( document.getElementsByClassName('hero').item(0), "scrolled");
   }
 

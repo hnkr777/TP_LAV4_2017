@@ -1,11 +1,11 @@
-<div class="main-w3layouts wrapper">
+<div class="main-w3layouts wrapper presentspin">
   <h1 class="titulo">Registro</h1>
   <div class="main-agileinfo">
     <div class="agileits-top">
       <form id="formRegistro" (submit)="registrarse();" action="/index.php" method="post">
         <input id="txtNombre" [(ngModel)]="nombre" class="inputField" type="text" name="usuario" placeholder="Nombre" required>
         <input id="txtEmail" [(ngModel)]="email" class="inputField" type="email" name="email" placeholder="Email" required>
-        <input id="txtCuit" [(ngModel)]="cuit" class="inputField" type="number" name="cuit" placeholder="CUIT" required>
+        <input id="txtCuit" min="1" max="100000000000" [(ngModel)]="cuit" class="inputField" type="number" name="cuit" placeholder="CUIT" required>
         <div class="radio-container">
           <label class="radio-inline">
             <input type="radio" [(ngModel)]="sexo" name="sexo" checked value="m">Masculino</label>
@@ -32,7 +32,7 @@
   </div>
   <div class="w3copyright-agile">
     <p class="titulo">© 2018 UTN.FRA | Design by
-      <a href="http://localhost/">hnkr</a>
+      <a href="/">hnkr</a>
     </p>
   </div>
   <app-decorations></app-decorations>

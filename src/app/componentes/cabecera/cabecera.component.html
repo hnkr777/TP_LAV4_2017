@@ -1,23 +1,54 @@
+<div class="img-bg">
+  <div class="autor">2018&nbsp;-&nbsp;Design&nbsp;by&nbsp;hnkr777</div>
+</div>
 
-<div class="panel panel-default">
+<div class="panel panel-default hironakamura">
   <div class="hero-text">
-    <h1 class="main-title titulo">Sala de Juegos</h1>
-    <p class="titulo">Hnkr</p>
-    <a href="https://github.com/hnkr777/TP_LAV4_2017.git" target="_blank">en GitHub
-      <i class="fa fa-github"></i>
-    </a>
-    <a routerLink="/QuienSoy">¿Quien Soy?
-      <i class="fa fa-user"></i>
-    </a>
+    <div class="container-fluid">
+      <div class="row header-hero">
+        <div class="col-md-12">
+          <h1 class="main-title t-tag">Sala de Juegos</h1>
+        </div>
+        <!-- <p class="titulo">Hnkr</p> -->
+      </div>
+
+      <div class="navs">
+
+        <a href="https://github.com/hnkr777/TP_LAV4_2017.git" target="_blank" title="Github del proyecto">
+          <div class="elementNav titulo">
+            <div class="">
+              <span class="fa fa-github inline"></span>&nbsp; En GitHub
+            </div>
+          </div>
+        </a>
+
+        <a data-toggle="modal" data-target="#modalAbout" title="Acerca del autor...">
+          <div class="elementNav titulo">
+            <div class="">
+              <!-- routerLink="/QuienSoy" -->
+              <span class="glyphicon glyphicon-asterisk inline"></span>&nbsp; Acerca
+            </div>
+          </div>
+        </a>
+
+        <a routerLink="/Login">
+          <div class="elementNav titulo">
+            <div class="">
+              <span class="glyphicon glyphicon-log-in inline"></span>&nbsp; Ingresar
+            </div>
+          </div>
+        </a>
+
+        <a routerLink="/Registro">
+          <div class="elementNav titulo">
+            <div class="">
+              <span class="glyphicon glyphicon-user inline"></span>&nbsp; Registrarse
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
   </div>
-  <ul class="nav navbar-nav navbar-right">
-    <li>
-      <a routerLink="/Registro">
-        <span class="glyphicon glyphicon-user"></span>Registrarse</a>
-    </li>
-    <li>
-      <a routerLink="/Login">
-        <span class="glyphicon glyphicon-log-in"></span> Ingresar</a>
-    </li>
-  </ul>
 </div>

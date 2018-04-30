@@ -1,9 +1,10 @@
 <div class="container-fluid">
   <ul class="nav nav-pills">
-    <li class="active">
-      <a routerLink="/Principal">Ir a inicio</a>
-    </li>
     <li>
+      <a routerLink="/Principal">
+        <span class="glyphicon glyphicon-arrow-left"></span> &nbsp; Ir a inicio</a>
+    </li>
+    <li class="active">
       <a (click)="TraerTodos()">Todos los jugadores</a>
     </li>
     <li>
@@ -13,24 +14,24 @@
       <a (click)="TraerPerdedores()">Los perdedores</a>
     </li>
   </ul>
+
+  <table class="table table-condensed table-bordered table-striped table-hover warning" style="color: white; text-shadow: -1px 0 black, 0 1px rgb(0, 0, 0), 1px 0 black, 0 -1px black;">
+    <thead>
+      <th>Usuario</th>
+      <th>email</th>
+      <th>CUIT</th>
+      <th>Sexo</th>
+      <th>gano</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jugador of listado">
+        <td>{{jugador.nombre}} </td>
+        <td>{{jugador.email}} </td>
+        <td>{{jugador.cuit}} </td>
+        <td>{{jugador.sexo | sexo| uppercase}} </td>
+        <td>{{jugador.gano}} </td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
-
-
-<table class="table table-condensed table-bordered table-striped table-hover warning" style="color: white; text-shadow: -1px 0 black, 0 1px rgb(0, 0, 0), 1px 0 black, 0 -1px black;">
-  <thead>
-    <th>Usuario</th>
-    <th>email</th>
-    <th>CUIT</th>
-    <th>Sexo</th>
-    <th>gano</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let jugador of listado">
-      <td>{{jugador.nombre}} </td>
-      <td>{{jugador.email}} </td>
-      <td>{{jugador.cuit}} </td>
-      <td>{{jugador.sexo | sexo| uppercase}} </td>
-      <td>{{jugador.gano}} </td>
-    </tr>
-  </tbody>
-</table>

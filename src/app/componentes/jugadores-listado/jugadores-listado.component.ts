@@ -14,12 +14,10 @@ export class JugadoresListadoComponent implements OnInit {
       this.miJugadoresServicio = serviceJugadores;
       
     }
-    
-
 
   ngOnInit() {
+    this.TraerTodos();
   }
-
 
   TraerTodos(){
     //alert("totos");

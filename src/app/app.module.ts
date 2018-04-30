@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Directive } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
@@ -25,6 +27,7 @@ import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/ad
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
+
 // declaro donde quiero que se dirija
 /*
 const MiRuteo = [{path: 'error' , component: ErrorComponent},
@@ -89,6 +92,9 @@ import { RegistrarseComponent } from './componentes/registrarse/registrarse.comp
     AnagramaComponent,
     DecorationsComponent,
     RegistrarseComponent
+  ],
+  entryComponents: [
+    //Directive
   ],
   imports: [
     BrowserModule,

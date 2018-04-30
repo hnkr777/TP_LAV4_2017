@@ -50,15 +50,17 @@ export class LoginComponent implements OnInit {
 
   error( error: Response | any ) {
     console.error('¡Acceso denegado!');
-    var msg: string = JSON.stringify(error.json());
+    //console.log(JSON.stringify(error.json()));
+
+    var msg: string = JSON.stringify(error);
     var obj = JSON.parse(msg);
-    if((obj.error!==undefined)) console.log(obj.error);
+    if((obj.statusText!==undefined) && obj.ok===false) console.log('Error '+obj.status + ': service url(' + obj.url + ') ' + obj.statusText);
     else console.log(msg);
     return error;
   }
 
   ingresar() {
-    this.xhr.httpPostS('/login', {email: this.email, clave: this.clave}, this.completado, this.error, ()=>{
+    this.xhr.httpPostS('http://localhost/login', {email: this.email, clave: this.clave}, this.completado, this.error, ()=>{
       this.router.navigate(['/Principal']);
     });
   }

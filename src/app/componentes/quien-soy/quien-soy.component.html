@@ -1,60 +1,110 @@
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>
-        <a class="navbar-brand" href="./">Sala De Juegos</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./QuienSoy#quien">Quien</a></li>
-          <li><a href="/TP_LAV4_2017/QuienSoy#que">Ques es</a></li>
-          <li><a href="./QuienSoy#donde">Donde</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- First Container -->
-  <div id ="quiwn"class="container-fluid bg-1 text-center">
-    <h3 class="margin">Quién Soy?</h3>
-    <img src="./assets/imagenes/quiensoy.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-    <h3>Soy Un alumno de la UTN FRA</h3>
-  </div>
-  
-  <!-- Second Container -->
-  <div id ="que" class="container-fluid bg-2 text-center">
-    <h3 class="margin">Esto es un trabajo práctico</h3>
-    <p>Cada universidad, cada facultad, cada carrera y obviamente cada materia en particular tiene estrategias didácticas y formas de evaluación diferentes. A pesar de que en muchos casos las universidades intentan estandarizar la forma de dictar clase para generar un orden en las planificaciones cuatrimestre a cuatrimestre, las formas de evaluación son elementales tanto para las instituciones y profesores como para los alumnos. A través de la evaluación formativa el educador busca información en el alumno para lograr comprender cómo se está
-      produciendo el proceso de aprendizaje y poder reajustar los objetivos pedagógicos. Y para el alumno es una muestra del progreso que está logrando y si puede aplicar, materializar y darle visibilidad a la comprensión del tema. Según Black y William (1998), la evaluación formativa, ayuda a que los estudiantes sean independientes a la hora del aprendizaje, es decir, se presenta como receptor, autorregulador y centro de esa misma evaluación. </p>
-    <a href="#" class="btn btn-default btn-lg">
-      <span class="glyphicon glyphicon-file"></span> Descargar PDF
-    </a>
-  </div>
-  
-  <!-- Third Container (Grid) -->
-  <div id ="donde" class="container-fluid bg-3 text-center">    
-    <h3 class="margin">Dónde Funciona?</h3><br>
-    <div class="row">
-      <div class="col-sm-4">
-        <p>Con las tecnologias WEB que permiten desarrollar aplicaciones multiplataforma</p>
-        <img src="./assets/imagenes/quiensoy1.png" class="img-responsive margin imagenDeQuienSoy"  alt="Image">
-      </div>
-      <div class="col-sm-4"> 
-        <p>Principalmente orientada a la experiencia del usuario, garantizando que su funcionamieto sea fluido y pensado en el comportamiento del usuario y en la funcionalidad.</p>
-        <img src="./assets/imagenes/quiensoy2.jpg" class="img-responsive margin imagenDeQuienSoy" alt="Image">
-      </div>
-      <div class="col-sm-4"> 
-        <p>Para los sistemas operativos lideres en el mercado del consumo masivo</p>
-        <img src="./assets/imagenes/quiensoy3.png" class="img-responsive margin imagenDeQuienSoy" alt="Image">
+<div class="content titulo">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a data-toggle="tab" href="#home">Sobre el autor</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#menu1">Sobre el sitio</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#menu2">Tecnologías</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div id="home" class="tab-pane fade in active">
+      <div class="row">
+        <div class="col-sm-5">
+          <h4 class="margin">UTN.FRA.alumno</h4>
+          <img src="./assets/imagenes/yo.jpg" class="img-responsive img-thumbnail" style="display: inline" alt="cestlavie" width="350"
+            height="350" style="border-radius: 15px;">
+        </div>
+        <div class="col-sm-7">
+          <h4 class="titulo">Federico Adolfo Honeker</h4>
+          <p class="titulo">Soy un alumno de la UTN.FRA</p>
+          <p class="titulo">Profesor: Octavio Villegas</p>
+          <p class="titulo">Materia: Laboratorio IV (4)</p>
+          <p>Github (fork): &nbsp;
+            <a class="titulo" href="https://github.com/hnkr777/TP_LAV4_2017.git">github.com/hnkr777/tp_laboratorio_4.git</a>
+          </p>
+        </div>
       </div>
     </div>
+
+    <div id="menu1" class="tab-pane fade">
+      <h3 class="margin">Sala de juegos</h3>
+      <div class="row">
+        <div class="col-sm-9">
+          <p title="Sono Sporci Questi Romani">Este sitio es un trabajo práctico, orientado en la experiencia de usuario y el manejo de las tecnologías de front-end,
+            entre las cuales se encuentran Twitter Bootstrap, JQuery, Angular 2, Typescript, HTML5, CSS3, PHP, MySQL, javascript
+            entre otras. La idea del mismo es demostrar el correcto uso de estas tecnologías y una fluida y positiva experiencia
+            de usuario, en cuanto al diseño y uso del mismo.</p>
+        </div>
+        <div class="col-sm-3">
+          <img src="./assets/imagenes/techlogos/ich.svg" id="yo" class="img-responsive" title="yo" alt="uerecundiam">
+        </div>
+      </div>
+    </div>
+
+    <div id="menu2" class="tab-pane fade">
+      <h3 class="margin">Tecnologías utilizadas</h3>
+      <div class="logo-list">
+        <div>
+          <img src="./assets/imagenes/techlogos/angular-icon.svg" class="img-responsive" title="Angular 2" alt="angular 2">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/typescript-2.svg" class="img-responsive" title="Typescript" alt="typescript">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/html-5.svg" class="img-responsive" title="HTML5" alt="html 5">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/css-3.svg" class="img-responsive" title="CSS3" alt="css 3">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/javascript.svg" class="img-responsive" title="Javascript" alt="javascript">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/jquery.svg" class="img-responsive" title="JQuery" alt="jquery">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/bootstrap.svg" class="img-responsive" title="Bootstrap" alt="bootstrap">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/php.svg" class="img-responsive" title="PHP" alt="php">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/mysql.svg" class="img-responsive" title="MySQL" alt="mysql">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/git.svg" class="img-responsive" title="Git" alt="git">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/visual-studio-code.svg" class="img-responsive" title="Visual Studio Code" alt="visual-studio-code">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/xampp.svg" class="img-responsive" title="Xampp" alt="xampp">
+        </div>
+        <div>
+          <img src="./assets/imagenes/techlogos/github.svg" class="img-responsive" title="Github" alt="github">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-4">
+          <p>Con las tecnologias WEB que permiten desarrollar aplicaciones multiplataforma</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Principalmente orientada a la experiencia del usuario, garantizando que su funcionamieto sea fluido y pensado en
+            el comportamiento del usuario y en la funcionalidad.</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Para los sistemas operativos lideres en el mercado del consumo masivo</p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-  
-  <!-- Footer -->
-  <footer class="container-fluid bg-4 text-center">
-    <p>Modificado por <a href="https://github.com/hnkr777/tp_laboratorio_4.git">github.com/hnkr777/tp_laboratorio_4.git</a></p> 
-  </footer>
+</div>
