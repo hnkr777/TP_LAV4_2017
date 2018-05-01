@@ -18,7 +18,7 @@ export class MiHttpService {
     return this.http
     .get(url)
     .toPromise()
-    .then(this.extractData)
+    .then(data=>{ return data.json();})   //.then(this.extractData)
     .catch(this.handleError);
   }
 
@@ -41,29 +41,29 @@ export class MiHttpService {
     );
   }
 
-  public httpGetO ( url: string): Observable<Response>
+  public httpGetO ( url: string, opts?: RequestOptionsArgs): Observable<Response>
   {
-    return this.http.get( url )
+    return this.http.get( url, opts )
       .map( ( res: Response ) => res.json())
       .catch( ( err: any ) => Observable.throw(err.json().error || 'Server error'));
   }
 
-  public httpPostO ( url: string, params: any): Observable<Response>
+  public httpPostO ( url: string, params?: any, options?: RequestOptionsArgs): Observable<Response>
   {
-    return this.http.post( url, params )
+    return this.http.post( url, params, options )
       .map( ( res: Response ) => res.json())
       .catch( ( err: any ) => Observable.throw(err.json().error || 'Server error'));
   }
 
   private extractData ( res: Response )
   {
-    alert(JSON.stringify(res));
-    return res.json() || {};
+    //alert(JSON.stringify(res));
+    return res.json(); //return res.json() || {};
   }
 
   private handleError ( error: Response | any )
   {
-    alert(JSON.stringify(error));
+    //alert(JSON.stringify(error));
     return error;
   }
 }

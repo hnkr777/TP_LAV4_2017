@@ -1,25 +1,118 @@
-<!--div *ngFor="let juego of listado">
-
-<p> {{juego.nombre}} </p>
-<p> {{juego.jugador}} </p>
-
-</div-->
-
-<table class="table table-condensed">
-    <thead>
+<div *ngIf="showTable.adivina" class="visor">
+  <p class="titulo tag">&nbsp;Adivina el número</p>
+  <table class="table table-condensed table-bordered table-hover titulo">
+    <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
       <tr>
-        <th>Juego</th>
-        <th>Jugador</th>
-        <th>Resultado</th>
+        <th>Usuario</th>
+        <th>gano</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let juego of listado">
+      <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Adivina'}">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
+        <td>{{juego.gano}} </td>
       </tr>
-     
     </tbody>
   </table>
+</div>
+
+<div *ngIf="showTable.anagrama" class="visor">
+  <p class="titulo tag">&nbsp;Anagrama</p>
+  <table class="table table-condensed table-bordered table-hover titulo" style="margin-bottom: 20px;">
+    <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
+      <tr>
+        <th>Usuario</th>
+        <th>datos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Anagrama'}">
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.datos}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="showTable.blackjack" class="visor">
+  <p class="titulo tag">&nbsp;Black Jack</p>
+  <table class="table table-condensed table-bordered table-hover titulo" style="margin-bottom: 20px;">
+    <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
+      <tr>
+        <th>Usuario</th>
+        <th>Gano</th>
+        <th>Puntaje</th>
+        <th>Ganadas</th>
+        <th>Empates</th>
+        <th>Perdidas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of listado | tipoJuego: {juego: 'BlackJack'}">
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.gano?'Si':'No'}} </td>
+        <td>{{juego.puntaje}} </td>
+        <td>{{juego.ganadas}} </td>
+        <td>{{juego.empates}} </td>
+        <td>{{juego.perdidas}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="showTable.ppt" class="visor">
+  <p class="titulo tag">&nbsp;Piedra papel o tijera</p>
+  <table class="table table-condensed table-bordered table-hover titulo" style="margin-bottom: 20px;">
+    <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
+      <tr>
+        <th>Usuario</th>
+        <th>datos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of listado | tipoJuego: {juego: 'PPT'}">
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.datos}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="showTable.tateti" class="visor">
+  <p class="titulo tag">&nbsp;Ta te ti</p>
+  <table class="table table-condensed table-bordered table-hover titulo" style="margin-bottom: 20px;">
+    <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
+      <tr>
+        <th>Usuario</th>
+        <th>datos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Tateti'}">
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.datos}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="showTable.velocidad" class="visor">
+  <p class="titulo tag">&nbsp;Velocidad mental</p>
+  <table class="table table-condensed table-bordered table-hover titulo" style="margin-bottom: 20px;">
+    <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
+      <tr>
+        <th>Usuario</th>
+        <th>datos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Velocidad'}">
+        <td>{{juego.nombre}} </td>
+        <td>{{juego.datos}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-decorations></app-decorations>
+<!-- </div> -->

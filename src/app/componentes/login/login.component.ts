@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     });
   }
   
-  logout(){
+  logout() {
     sessionStorage.removeItem('token');
     localStorage.removeItem('token');
     location.reload();

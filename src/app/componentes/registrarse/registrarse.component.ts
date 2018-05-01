@@ -61,15 +61,15 @@ export class RegistrarseComponent implements OnInit {
   }
 
   registrarse() {
-    if(this.clave!=this.clave) return;
-    this.xhr.httpPostS('/jugadoresarchivo/apirestjugadores/altausuario/', {
+    if(this.clave!=this.clave2) return;
+    this.xhr.httpPostS('http://localhost/jugadoresarchivo/apirestjugadores/altausuario/', {
       nombre: this.nombre,
       email: this.email,
       clave: this.clave,
       cuit: this.cuit,
       sexo: this.sexo
     }, this.completado, this.error, ()=>{
-      this.xhr.httpPostS('/login', {email: this.email, clave: this.clave}, (res: Response)=>{
+      this.xhr.httpPostS('http://localhost/login', {email: this.email, clave: this.clave}, (res: Response)=>{
         localStorage.setItem('token', JSON.parse(JSON.stringify(res.json())).token);
       }, err=>{ console.error('No se pudo loguear al servidor.');}, ()=>{
         this.router.navigate(['/Principal']);

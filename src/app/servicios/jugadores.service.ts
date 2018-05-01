@@ -12,26 +12,25 @@ export class JugadoresService {
 
 filtrado:any;
 
-  traertodos(ruta : string,filtro: string) 
-  {
+  traertodos(ruta : string,filtro: string) {
     return this.miHttp.traerJugadores(ruta).then(data=>{
       //console.info("jugadores service",data);
 
       this.filtrado=data;
 
-      let  ganador: boolean;
-      if(filtro=="ganadores")
-      {
-        ganador= true;
-      }
-      else
-      {
-        ganador= false;
-      }
+      // let  ganador: boolean;
+      // if(filtro=="ganadores")
+      // {
+      //   ganador= true;
+      // }
+      // else
+      // {
+      //   ganador= false;
+      // }
 
-      this.filtrado = this.filtrado.filter(
-        data => data.gano === ganador || filtro=="todos"
-      );
+      // this.filtrado = this.filtrado.filter(
+      //   data => data.gano === ganador || filtro=="todos"
+      // );
       return this.filtrado
     }).catch(error=>{
       console.log("error")

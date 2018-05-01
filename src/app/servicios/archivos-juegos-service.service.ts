@@ -1,31 +1,45 @@
 import { Injectable } from '@angular/core';
 import { MiHttpService } from './mi-http/mi-http.service'; 
 import { Headers, RequestOptions } from '@angular/http';
+import { Juego } from '../clases/juego';
 
 @Injectable()
-export class ArchivosJugadoresService {
-  // api="http://localhost:8080/jugadoresarchivo/apirestjugadores/";
-  api="http://localhost/jugadoresarchivo/apirestjugadores/";
+export class ArchivosJuegosServiceService {
+  api="http://localhost/partidas/";
+  
   peticion:any;
-
+  
   constructor( public miHttp: MiHttpService ) {
     
   }
 
-  public traerJugadores(ruta: string) {
+  public guardarJuego(ruta: string, juego: Juego) {
     let headers = new Headers();
     let token = this.getToken();
     headers.append('token', token);
     let options = new RequestOptions({ headers: headers });
 
-    if(this.getToken() != '') {
-      
-    }
-    
+    return this.miHttp.httpPostO(this.api+ruta, { juego: juego.juego, datos: juego.datos}, options)
+    .toPromise()
+    .then( data => {
+      console.log("Archivo Juegos");
+     // console.log( data );
+      return data;
+    }, err => {
+      console.log( err );
+    })
+  }
+
+  public traerJuegos(ruta) {
+    let headers = new Headers();
+    let token = this.getToken();
+    headers.append('token', token);
+    let options = new RequestOptions({ headers: headers });
+
     return this.miHttp.httpGetO(this.api+ruta, options)
     .toPromise()
     .then( data => {
-      console.log("Archivo jugadores");
+      console.log("Archivo Juegos");
      // console.log( data );
       return data;
     }, err => {
@@ -42,6 +56,5 @@ export class ArchivosJugadoresService {
     }
     return '';
   }
-
 
 }

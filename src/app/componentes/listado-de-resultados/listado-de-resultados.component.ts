@@ -1,5 +1,6 @@
 
 import { Component, OnInit , Input, EventEmitter} from '@angular/core';
+import { JuegoServiceService } from "../../servicios/juego-service.service";
 
 @Component({
   selector: 'app-listado-de-resultados',
@@ -7,15 +8,26 @@ import { Component, OnInit , Input, EventEmitter} from '@angular/core';
   styleUrls: ['./listado-de-resultados.component.css']
 })
 export class ListadoDeResultadosComponent implements OnInit {
- @Input()
- listado: Array<any>;
+  @Input()
+  listado: Array<any>; // el listado que se muestra
+  @Input() showTable: object = {adivina: true, anagrama: true, blackjack: true, ppt: true, tateti: true, velocidad: true};
+  
+  locJuegos: JuegoServiceService;
 
-
-  constructor() {
-   }
+  constructor(misJuegos: JuegoServiceService) {
+    this.locJuegos = misJuegos;
+    this.listado = new Array<any>();
+  }
 
   ngOnInit() {
 
+  }
+
+
+  TraerTodas() { // no se usa
+    this.locJuegos.traerPartidas('traertodas','todos').then(data=>{
+       this.listado = data;
+    })
   }
 
   ver() {

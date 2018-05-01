@@ -27,6 +27,7 @@ import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/ad
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
+import { ArchivosJuegosServiceService } from "./servicios/archivos-juegos-service.service";
 
 // declaro donde quiero que se dirija
 /*
@@ -61,6 +62,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
 import { DecorationsComponent } from './decorations/decorations.component';
 import { RegistrarseComponent } from './componentes/registrarse/registrarse.component';
+import { TipoJuegoPipe } from './pipes/tipo-juego.pipe';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,8 @@ import { RegistrarseComponent } from './componentes/registrarse/registrarse.comp
     TatetiComponent,
     AnagramaComponent,
     DecorationsComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    TipoJuegoPipe
   ],
   entryComponents: [
     //Directive
@@ -108,7 +111,7 @@ import { RegistrarseComponent } from './componentes/registrarse/registrarse.comp
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService, ArchivosJuegosServiceService, PaisesService,ArchivosJugadoresService,JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

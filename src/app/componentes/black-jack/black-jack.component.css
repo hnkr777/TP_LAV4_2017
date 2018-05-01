@@ -1,23 +1,4 @@
 
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-.aceptbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #3664F4;
-}
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
 
 .card {
     animation-name: mano;
@@ -25,6 +6,7 @@ img.avatar {
     border-radius: 4%;
     box-shadow: 0px 0px 20px 5px rgb(0, 0, 0);
     padding: 1%;
+    background-clip: unset;
 }
 
 .card:hover {
@@ -104,11 +86,6 @@ img.avatar {
     font-size: 20px;
 }
 
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
@@ -163,11 +140,16 @@ span.psw {
     color: white;
 }
 
+#lblCrupier, #lblMensaje, #lblJugador {
+    font-size: large;
+}
+
 #panel-board {
     min-height: 390px;
-    background-color: green;
+    background-color: rgb(3, 117, 60);
     position: relative;
     margin: auto;
+    border-radius: 20px;
     padding: 5%;
     border: 15px darkorange;
 }
@@ -186,16 +168,7 @@ span.psw {
     margin: 1%;
     /*border: 1px solid rgb(255, 27, 27);  */
     text-align: center;
-}
-
-.floating-box {
-    float: left;
-    width: auto;
-    height: 50%;
-    margin: 1%;
-    animation-name: reparto;
-    animation-duration: 2s;
-    /*border: 1px solid rgb(221, 255, 27);*/
+    display: block;
 }
 
 #snackbar {
@@ -258,21 +231,144 @@ span.psw {
     to {bottom: 0; opacity: 0;}
 }
 
+.floating-box {
+    /* float: left; */
+    display: inline-block;
+    height: 50%;
+    margin: 1%;
+    width: 100px; 
+    height: 140px; 
+    /* animation-delay: 1s; */
+    /* animation-name: reparto; */
+    /* animation-duration: 2s; */
+    -webkit-animation: reparto 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: reparto 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    /*border: 1px solid rgb(221, 255, 27);*/
+}
+
+.flip-top {
+	-webkit-animation: flip-top 250ms cubic-bezier(0.455, 0.030, 0.515, 0.955) reverse both;
+	animation: flip-top 250ms cubic-bezier(0.455, 0.030, 0.515, 0.955) reverse both;
+    animation-duration: 250ms;
+}
+
+/* 
+.logo-list div {
+    display: inline-block;
+    height: 40px;
+    margin: 10px;
+    -webkit-animation: reparto 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: reparto 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 3.9s;
+} */
+
+@-webkit-keyframes reparto {
+    0% {
+        -webkit-transform: translateY(-500vh);
+        transform: translateY(-500vh);
+        display: inline-block;
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        display: inline-block;
+    }
+}
 
 @keyframes reparto {
     0% {
-        top: -140px;
-        
-        position: fixed;
-    }
-    99% {
-        top: 320px;
-        
-        position: fixed;
+        -webkit-transform: translateY(-500vh);
+        transform: translateY(-500vh);
+        display: inline-block;
     }
     100% {
-        top: 0px;
-        left: initial;
-        position: inherit;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        display: inline-block;
     }
 }
+
+@-webkit-keyframes flip-top {
+    0% {
+      -webkit-transform: translateY(0) rotateX(0);
+              transform: translateY(0) rotateX(0);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+    }
+    100% {
+      -webkit-transform: translateY(-100%) rotateX(180deg);
+              transform: translateY(-100%) rotateX(180deg);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+    }
+  }
+  @keyframes flip-top {
+    0% {
+      -webkit-transform: translateY(0) rotateX(0);
+              transform: translateY(0) rotateX(0);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+    }
+    100% {
+      -webkit-transform: translateY(-100%) rotateX(180deg);
+              transform: translateY(-100%) rotateX(180deg);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+    }
+  }
+  
+.PopUpMsg {
+    align-self: center;
+    text-align: center;
+    vertical-align: middle;
+    position: static;
+    /* transform: translateY(10vh); */
+    /* transform: translateX(50vh); */
+    -webkit-animation: bounce-in 2s ease 2s 1 normal;
+    animation: bounce-in 2s ease 2s 1 normal;
+}
+
+#lblMensaje {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@-webkit-keyframes bounce-in {
+     0%{
+       /* display: inline; */
+       opacity: 0;
+       -webkit-transform: scale(.3);
+       transform: scale(.3);
+     }
+     50%{
+       opacity: 1;
+       -webkit-transform: scale(1.0);
+       transform: scale(1.0);
+     }
+     70%{
+       -webkit-transform: scale(0.9);
+       transform: scale(0.9);
+     }
+     100%{
+       -webkit-transform: scale(1);
+       transform: scale(1);
+     }
+   }
+   
+   @keyframes bounce-in {
+     0%{
+        /* display: inline; */
+        opacity: 0;
+       transform: scale(.3);
+     }
+     50%{
+       opacity: 1;
+       transform: scale(1.0);
+     }
+     70%{
+       transform: scale(0.9);
+     }
+     100%{
+       transform: scale(1);
+     }
+   }

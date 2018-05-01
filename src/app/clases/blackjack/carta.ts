@@ -52,6 +52,8 @@ export class Carta {
         
         //setInterval(iv, 100, this, obj, i[0], iv);
         this.rutaImagen = './assets/imagenes/cards/lg/'+this.numero+'_'+this.tipo+'.png';
+        obj.parentElement.style.cssText += 'animation-duration: 250ms; animation: flip-top 250ms cubic-bezier(0.455, 0.030, 0.515, 0.955) reverse both;';
+        obj.parentElement.classList.add('flip-right');
         obj.setAttribute('src', this.rutaImagen);
     }
 

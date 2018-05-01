@@ -31,7 +31,15 @@
           </div>
         </a>
 
-        <a routerLink="/Login">
+        <a *ngIf="loged" (click)="logout()">
+          <div class="elementNav titulo">
+            <div class="">
+              <span class="glyphicon glyphicon-log-out inline"></span>&nbsp; Salir
+            </div>
+          </div>
+        </a>
+
+        <a *ngIf="!loged" routerLink="/Login">
           <div class="elementNav titulo">
             <div class="">
               <span class="glyphicon glyphicon-log-in inline"></span>&nbsp; Ingresar
@@ -39,7 +47,7 @@
           </div>
         </a>
 
-        <a routerLink="/Registro">
+        <a *ngIf="!loged" routerLink="/Registro">
           <div class="elementNav titulo">
             <div class="">
               <span class="glyphicon glyphicon-user inline"></span>&nbsp; Registrarse

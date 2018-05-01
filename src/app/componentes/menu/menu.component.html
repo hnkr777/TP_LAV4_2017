@@ -79,9 +79,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" title="Página principal" (click)="Juego('')" data-toggle="collapse" data-target="#myNavbar">
+      <a class="navbar-brand" title="Página principal" (click)="Juego('Principal')" data-toggle="collapse" data-target="#myNavbar">
         <span>
-          <img src="assets/imagenes/utn.png" height="30px" alt="Logo"> <p id="brand">Sala de juegos</p></span>
+          <img src="assets/imagenes/utn.png" height="30px" alt="Logo">
+          <p id="brand">Sala de juegos</p>
+        </span>
       </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -91,11 +93,9 @@
           <a routerLink="/Juegos">Menú de Juegos</a>
         </li>
 
-
-
-
+        <!-- 
         <li>
-          <a (click)="Juego('Agilidad')">Agilidad</a> <!-- data-toggle="tooltip" title="Hooray!" -->
+          <a (click)="Juego('Agilidad')">Agilidad</a>
         </li>
         <li>
           <a (click)="Juego('BlackJack')">Black Jack</a>
@@ -119,18 +119,28 @@
         <li>
           <a (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a>
         </li>
-
-
-
+ -->
 
       </ul>
+
+      <div class="btn-group">
+        <button class="btn btn-default navbar-btn" title="Anterior">
+          <span class="glyphicon glyphicon-menu-left">Anterior</span>
+        </button>
+        <button class="btn btn-default navbar-btn">Juegos</button>
+        <button class="btn btn-default navbar-btn" title="Siguiente">
+          Siguiente&nbsp;<span class="glyphicon glyphicon-menu-right"></span>
+        </button>
+      </div>
+
+
       <ul class="nav navbar-nav navbar-right menu-inline">
         <li>
           <a href="#">
             <span class="glyphicon glyphicon-user"></span> Mis Datos</a>
         </li>
         <li>
-          <a href="/Login">
+          <a (click)="logout()">
             <span class="glyphicon glyphicon-log-out"></span> Salir</a>
         </li>
       </ul>

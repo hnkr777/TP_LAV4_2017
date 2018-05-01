@@ -14,6 +14,12 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout() {
+    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
+    location.reload();
+  }
+
   Juego(tipo: string) {
     switch (tipo) {
       case 'Adivina':
@@ -24,6 +30,9 @@ export class MenuComponent implements OnInit {
       break;
       case 'Agilidad':
         this.router.navigate(['/Juegos/Agilidad']);
+      break;
+      case 'Principal':
+        this.router.navigate(['/Principal']);
       break;
       case 'PPT':
         this.router.navigate(['/Juegos/PPT']);

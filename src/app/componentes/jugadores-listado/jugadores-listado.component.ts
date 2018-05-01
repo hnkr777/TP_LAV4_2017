@@ -7,10 +7,10 @@ import { JugadoresService } from '../../servicios/jugadores.service';
 })
 export class JugadoresListadoComponent implements OnInit {
 
-  listado:any
-  miJugadoresServicio:JugadoresService
+    listado: any;
+    miJugadoresServicio:JugadoresService;
   
-    constructor(serviceJugadores:JugadoresService) {
+    constructor(serviceJugadores: JugadoresService) {
       this.miJugadoresServicio = serviceJugadores;
       
     }
@@ -23,10 +23,11 @@ export class JugadoresListadoComponent implements OnInit {
     //alert("totos");
     this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
       //console.info("jugadores listado",(data));
-      this.listado= data;
+      this.listado = data;
 
     })
   }
+  
   TraerGanadores(){
     this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
       //console.info("jugadores listado",(data));

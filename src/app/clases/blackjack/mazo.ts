@@ -13,7 +13,7 @@ export class Mazo {
     
     public nuevaCarta(oculta: boolean):Carta {
         if (this.contador==52 || this.cartasRestantes==0 || this.cartas.length >= 52) {
-            console.error('Mazo de cartas vacío.');
+            console.info('Mazo de cartas vacío.');
             return null;
         }
         this.contador++;

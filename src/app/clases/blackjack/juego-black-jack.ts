@@ -5,6 +5,8 @@ import { Mazo } from './mazo'
 import { Carta } from './carta'
 import { BlackJackComponent } from "../../componentes/black-jack/black-jack.component";
 import { setInterval } from 'timers';
+import { JuegoServiceService } from "../../servicios/juego-service.service";
+import { ArchivosJuegosServiceService } from "../../servicios/archivos-juegos-service.service";
 
 export class BlackJack extends Juego {
     mazo: Mazo;
@@ -12,9 +14,11 @@ export class BlackJack extends Juego {
     jugadores: Array<Player>;
     manoTerminada: boolean;
     sumaCrupier: number;
+    cardDelay: number = 250; // tiempo en milisegundos (ms)
+    private cardIteration: number = 0;
     
-    constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Black Jack", gano, jugador);
+    constructor(public servicioJuego: JuegoServiceService) {
+        super("BlackJack", '[]');
         this.mazo = new Mazo();
         this.playerCount = 1;
         this.sumaCrupier = 0;
@@ -23,11 +27,26 @@ export class BlackJack extends Juego {
         for (let index = 0; index <= this.playerCount; index++) {
             this.jugadores.push(new Player(index==0?'Crupier':undefined));
         }
-        
     }
 
-    public verificar(): boolean { 
+    public guardarJugada(): boolean { // polimorfismo de la superclase Juego...
+        
+        this.datos = JSON.stringify({
+            gano: (this.jugadores[1].puntaje>this.jugadores[0].puntaje),
+            puntaje: this.jugadores[1].puntaje,
+            ganadas: this.jugadores[1].ganadas,
+            empates: this.jugadores[1].empatadas,
+            perdidas: this.jugadores[1].perdidas
+        });
+        
+        this.servicioJuego.guardarPartida('guardarjugada', this);
+        console.info('Jugada guardada.');
+        return true;
+    }
+
+    public verificar(): boolean { // polimorfismo, definido en super clase Juego...
         let res: number = this.checkAgainstCrupier(this.jugadores[1]);
+        this.cardIteration = 0;
         let msg: string;
         if (res < 0) {
             this.jugadores[0].ganadas++;
@@ -69,6 +88,11 @@ export class BlackJack extends Juego {
 
     public Mensaje(msg: string) {
         document.getElementById('lblMensaje').textContent = msg;
+        var padre = document.getElementById('lblMensaje').parentElement.parentElement.parentElement;
+        var hijo = document.getElementById('lblMensaje').parentElement.parentElement;
+        var newone = padre.cloneNode(true);
+        hijo.parentElement.replaceChild(newone, hijo);
+        
         if(msg != '') console.log(' => '+msg+'.');
     }
 
@@ -96,6 +120,7 @@ export class BlackJack extends Juego {
     }
 
     private playCrupier() {
+        this.cardIteration = 1;
         let crupier: Player = this.jugadores[0];
         let carta: Carta = this.jugadores[0].cartas[1];
         carta.Flip();
@@ -111,6 +136,7 @@ export class BlackJack extends Juego {
     }
 
     public Pedir(index: number) {
+        if(index==1) this.cardIteration = 0;
         let carta: Carta;
         carta = this.mazo.nuevaCarta(false);
         if(carta===null) {
@@ -125,7 +151,9 @@ export class BlackJack extends Juego {
     }
 
     private finalizarRonda() {
+        this.cardIteration = 0;
         this.manoTerminada = true;
+        this.guardarJugada();
         this.finalizarMano();
         this.mazo.reiniciar();
         this.Mensaje('Mazo sin cartas, mezclando...');
@@ -204,7 +232,16 @@ export class BlackJack extends Juego {
         
         card.classList.add('card');
         container.classList.add('floating-box');
-        container.style.cssText += 'float: left; width: 50px; height: 140px; animation-name: reparto; animation-duration: 250ms;'; // margin: 1%; border: 1px solid rgb(221, 255, 27);
+        container.style.cssText = 
+            'float: left;'+
+            'width: 100px;'+ 
+            'height: 140px;'+ 
+            'animation: reparto 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;'+ 
+            'display: inline-block;'+
+            'animation-duration: '+this.cardDelay+'ms;'+
+            'animation-delay: '+this.cardDelay*this.cardIteration+'ms;';
+            
+            // margin: 1%; border: 1px solid rgb(221, 255, 27); 
 
         card.className = "card";
         card.classList.add('card');
@@ -212,7 +249,7 @@ export class BlackJack extends Juego {
         card.setAttribute('src', carta.rutaImagen);
         card.setAttribute('alt', carta.nombreLargo);
         card.setAttribute('height', '100%');
-        card.style.cssText += 'border-radius: 4%; box-shadow: 0px 0px 20px 5px rgb(0, 0, 0); top: 0px;';
+        card.style.cssText = 'border-radius: 4%; box-shadow: 0px 0px 20px 5px rgb(0, 0, 0); top: 0px;';
         card.style.padding = '4%';
         card.style.overflow = 'visible';
         card.style.position = 'relative'; // static|absolute|fixed|relative|sticky|initial|inherit
@@ -221,8 +258,8 @@ export class BlackJack extends Juego {
         //console.info(carta.nombreLargo);
         container.appendChild(card);
         board.appendChild(container);
-        
-     }
+        this.cardIteration++;
+    }
 
     public retornarAyuda() {
         /*if (this.numeroIngresado < this.numeroSecreto) {
