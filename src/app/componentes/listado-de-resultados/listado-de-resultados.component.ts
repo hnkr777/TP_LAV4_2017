@@ -10,7 +10,7 @@ import { JuegoServiceService } from "../../servicios/juego-service.service";
 export class ListadoDeResultadosComponent implements OnInit {
   @Input()
   listado: Array<any>; // el listado que se muestra
-  @Input() showTable: object = {adivina: true, anagrama: true, blackjack: true, ppt: true, tateti: true, velocidad: true};
+  @Input() showTable: any = {adivina: true, anagrama: true, blackjack: true, ppt: true, tateti: true, velocidad: true};
   
   locJuegos: JuegoServiceService;
 
