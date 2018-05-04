@@ -3,17 +3,17 @@
   <div class="main-agileinfo">
     <div class="agileits-top">
       <form id="formRegistro" (submit)="registrarse();" action="/index.php" method="post">
-        <input id="txtNombre" [(ngModel)]="nombre" class="inputField" type="text" name="usuario" placeholder="Nombre" required>
-        <input id="txtEmail" [(ngModel)]="email" class="inputField" type="email" name="email" placeholder="Email" required>
+        <input id="txtNombre" [(ngModel)]="nombre" autocomplete='name' class="inputField" type="text" name="usuario" placeholder="Nombre" required>
+        <input id="txtEmail" [(ngModel)]="email" autocomplete='email' class="inputField" type="email" name="email" placeholder="Email" required>
         <input id="txtCuit" min="1" max="100000000000" [(ngModel)]="cuit" class="inputField" type="number" name="cuit" placeholder="CUIT" required>
         <div class="radio-container">
           <label class="radio-inline">
-            <input type="radio" [(ngModel)]="sexo" name="sexo" checked value="m">Masculino</label>
+            <input type="radio" [(ngModel)]="sexo" autocomplete="sex" name="sexo" checked value="m">Masculino</label>
           <label class="radio-inline">
-            <input type="radio" [(ngModel)]="sexo" name="sexo" value="f">Femenino</label>
+            <input type="radio" [(ngModel)]="sexo" autocomplete="sex" name="sexo" value="f">Femenino</label>
         </div>
-        <input id="txtClave" [(ngModel)]="clave" class="inputField" type="password" name="clave" placeholder="Clave" required="true">
-        <input id="txtRpClave" [(ngModel)]="clave2" class="inputField w3lpass" type="password" name="clave" placeholder="Confirme clave"
+        <input id="txtClave" [(ngModel)]="clave" autocomplete='new-password' class="inputField" type="password" name="clave" placeholder="Clave" required="true">
+        <input id="txtRpClave" [(ngModel)]="clave2" autocomplete='new-password' class="inputField w3lpass" type="password" name="clave" placeholder="Confirme clave"
           required=true>
         <div class="wthree-text">
           <div class="checkbox">

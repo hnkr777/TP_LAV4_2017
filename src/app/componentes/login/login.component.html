@@ -4,8 +4,8 @@
   <div class="main-agileinfo">
     <div class="agileits-top">
       <form id="formRegistro" (submit)="ingresar();" action="/login" method="post">
-        <input id="txtEmail" [(ngModel)]="email" class="inputField" type="email" name="email" placeholder="Email" required>
-        <input id="txtClave" [(ngModel)]="clave" class="inputField" type="password" name="clave" placeholder="Clave" required>
+        <input id="txtEmail" [(ngModel)]="email" autocomplete='email' class="inputField" type="email" name="email" placeholder="Email" required>
+        <input id="txtClave" [(ngModel)]="clave" autocomplete="current-password" class="inputField" type="password" name="clave" placeholder="Clave" required>
         <div class="wthree-text">
           <div class="checkbox">
             <label class="anim">
@@ -19,6 +19,7 @@
       <p>¿No tiene cuenta?
         <a routerLink="/Registro"> Registrese aquí</a>
       </p>
+      <p><a (click)="logadmin()" style="cursor: pointer;">Loguear como admin</a></p>
     </div>
   </div>
   <div class="w3copyright-agile">

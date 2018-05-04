@@ -18,7 +18,7 @@ export class BlackJack extends Juego {
     private cardIteration: number = 0;
     
     constructor(public servicioJuego: JuegoServiceService) {
-        super("BlackJack", '[]');
+        super("BlackJack", 'Black Jack');
         this.mazo = new Mazo();
         this.playerCount = 1;
         this.sumaCrupier = 0;
@@ -44,7 +44,7 @@ export class BlackJack extends Juego {
         return true;
     }
 
-    public verificar(): boolean { // polimorfismo, definido en super clase Juego...
+    public verificar(): number { // polimorfismo, definido en super clase Juego...
         let res: number = this.checkAgainstCrupier(this.jugadores[1]);
         this.cardIteration = 0;
         let msg: string;
@@ -83,7 +83,7 @@ export class BlackJack extends Juego {
         this.Mensaje(msg);
         this.manoTerminada = true;
         
-        return res > 0;
+        return res;
     }
 
     public Mensaje(msg: string) {

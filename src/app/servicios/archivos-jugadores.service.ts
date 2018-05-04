@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { MiHttpService } from './mi-http/mi-http.service'; 
 import { Headers, RequestOptions } from '@angular/http';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable()
 export class ArchivosJugadoresService {
   // api="http://localhost:8080/jugadoresarchivo/apirestjugadores/";
-  api="http://localhost/jugadoresarchivo/apirestjugadores/";
-  peticion:any;
+  api =  environment.backendRoute+"jugadoresarchivo/apirestjugadores/";
+  peticion: any;
 
   constructor( public miHttp: MiHttpService ) {
     

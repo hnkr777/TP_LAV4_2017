@@ -17,7 +17,8 @@ export class CabeceraComponent implements OnInit {
   logout() {
     sessionStorage.removeItem('token');
     localStorage.removeItem('token');
-    location.reload();
+    //location
+    
   }
 
   getToken(){ // para usar:  headers: {"token": getToken()} dentro de la llamada (parametros)

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Tateti } from '../../clases/tateti'
+import { JuegoServiceService } from "../../servicios/juego-service.service";
+
 
 @Component({
   selector: 'app-tateti',
@@ -6,10 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tateti.component.css']
 })
 export class TatetiComponent implements OnInit {
+  nuevoJuego : Tateti;
+  
+  mensaje: string = 'Su turno, juega con cruces';
 
-  constructor() { }
+  constructor(public juegoSrv : JuegoServiceService ) {
+    this.nuevoJuego = new Tateti(this.juegoSrv);
+  }
 
   ngOnInit() {
+    //document.getElementById('rotacion').classList.add('rad');
+  }
+
+  elijo(celda: number) {
+    this.mensaje = this.nuevoJuego.jugar(celda);
+  }
+
+
+  verificar() {
+    
   }
 
 }

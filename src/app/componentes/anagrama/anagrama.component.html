@@ -1,4 +1,45 @@
-<p>
-  anagrama works!
+<div class="content panel wrapper">
+  <div align="center" class="titulo">
+    <h3>Anagrama</h3>
 
-</p>
+    <br>
+  </div>
+  <div align="center" class="titulo">
+    <h4>
+      <p>Escribe las letras en el orden correcto para formar la palabra secreta.</p>
+      <p>Tienes tres intentos como máximo, ¡buena suerte!</p>
+    </h4>
+  </div>
+  <br>
+  <br>
+
+  <div class="container contenedor" align="center">
+
+    <h4 class="titulo">Palabra anagrama: </h4>
+    <h1 class="titulo">{{miJuego.palabraAJugar}}</h1>
+
+
+    <input type="text" name="palabraDelUsuario" >
+
+    <div class="row">
+      <div class="col-md-4">
+        <input type="button" name="Jugar" class="btn btn-warning boton" (click)="jugar()" value="Jugar">
+      </div>
+      <div class="col-md-4">
+        <input type="button" name="Verificar" class="btn btn-success boton"  value="Comprobar">
+      </div>
+      <div class="col-md-4">
+        <input type="button" name="Rendicion" class="btn btn-danger boton" (click)="rendirse()" value="Rendirse">
+      </div>
+    </div>
+
+    <div class="contador">
+      <h3 class="titulo">Intentos: {{miJuego.contador}}</h3>
+    </div>
+  </div>
+
+  <div class="gano titulo">
+    <h3>{{miJuego.resultado}}</h3>
+  </div>
+  <app-decorations></app-decorations>
+</div>

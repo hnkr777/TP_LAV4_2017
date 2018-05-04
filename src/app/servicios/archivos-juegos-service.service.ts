@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { MiHttpService } from './mi-http/mi-http.service'; 
 import { Headers, RequestOptions } from '@angular/http';
 import { Juego } from '../clases/juego';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ArchivosJuegosServiceService {
-  api="http://localhost/partidas/";
+  api = environment.backendRoute+"partidas/";
   
   peticion:any;
   
@@ -19,7 +20,7 @@ export class ArchivosJuegosServiceService {
     headers.append('token', token);
     let options = new RequestOptions({ headers: headers });
 
-    return this.miHttp.httpPostO(this.api+ruta, { juego: juego.juego, datos: juego.datos}, options)
+    return this.miHttp.httpPostO(this.api+ruta, { juego: juego.nombre, datos: juego.datos}, options)
     .toPromise()
     .then( data => {
       console.log("Archivo Juegos");

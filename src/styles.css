@@ -24,6 +24,7 @@ img{max-width:100%;}
 
 body {
 	background: rgb(0, 0, 0);
+    /* background: linear-gradient(to top, rgb(165, 46, 25), rgb(196, 100, 21)); */
     background: linear-gradient(to top, rgb(129, 12, 12), rgb(170, 142, 18));
 	background-size: cover;
 	background-attachment: fixed; 

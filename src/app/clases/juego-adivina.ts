@@ -4,11 +4,8 @@ export class JuegoAdivina extends Juego {
     numeroSecreto: number = 0;
     numeroIngresado = 0;
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Adivina", '[]');
-     
-    
-      
-      }
+      super("Adivina", 'Adivina el número');
+    }
 
     public guardarJugada() {return true;}
 
@@ -21,7 +18,7 @@ export class JuegoAdivina extends Juego {
         // } else {
         //   return false;
         // }
-        return true;
+        return 1;
      }
 
      public generarnumero() {

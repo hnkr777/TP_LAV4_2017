@@ -4,16 +4,17 @@ import { Juego } from '../clases/Juego';
 import { JuegoAdivina } from '../clases/juego-adivina';
 import { MiHttpService } from './mi-http/mi-http.service'; 
 import { ArchivosJuegosServiceService } from "../servicios/archivos-juegos-service.service";
+import { environment } from './../../environments/environment';
 
 @Injectable()
 export class JuegoServiceService {
-  api: string = "http://localhost/partidas/traertodas";
+  api: string = environment.backendRoute+"partidas/traertodas/";
   peticion: any;
   filtrado: any;
 
   constructor( public miHttp: MiHttpService, public miServiceJuegos: ArchivosJuegosServiceService ) {
     //this.filtrado = new Array<any>();
-    this.peticion = this.miHttp.httpGetO("http://localhost/partidas/traertodas/");
+    this.peticion = this.miHttp.httpGetO(this.api);
   }
 
   guardarPartida(ruta: string, juego: Juego) {
@@ -57,10 +58,10 @@ export class JuegoServiceService {
   }
 
   public listar(): any { //public listar(): Array<Juego> {
-    this.traerPartidas('traertodas', '');
+    this.traerPartidas('traertodas/', '');
     //let miArray: Array<Juego> = new Array<Juego>();
 
-    // this.miHttp.httpGetP("http://localhost/partidas/traertodas/")
+    // this.miHttp.httpGetP("localhost/partidas/traertodas/")
     // .then( data => {
     //   console.log( 'En listar()' );
     //   //var obj: any;

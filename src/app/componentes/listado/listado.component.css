@@ -30,3 +30,7 @@
 .nav a {
     cursor: pointer;
 }
+
+.container-fluid {
+    overflow-y: scroll;
+}

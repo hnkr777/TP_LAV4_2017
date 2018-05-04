@@ -1,27 +1,25 @@
 
 export abstract class Juego {
-  public nombre = 'Sin Nombre';
+  public nombre = 'Juego';
   //public jugador: string;
   //public gano = false;
+  public titulo: string;
   public id: number;
-  public juego: string;
   public datos: string;
 
-  constructor(juego: string, datos?: string) {
-    //if (id)
-    //  this.id = id;
+  public readonly perdio : number = -1;
+  public readonly empato : number = 0;
+  public readonly gano : number = 1;
 
-    if (juego)
-      this.juego = juego;
-
-    if(datos)
-      this.datos = datos;
+  constructor(juego: string, titulo: string) {
+    this.titulo = titulo;
+    this.nombre = juego;
   }
 
   //'/partidas/guardarjugada'
   public abstract guardarJugada(): boolean;
 
-  public abstract verificar():boolean;
+  public abstract verificar(): number; // perdio = -1 / empato = 0 / gano = 1
   
   public retornarAyuda() {
     return "NO hay Ayuda definida";

@@ -1,3 +1,4 @@
+<div class="container">
 <div *ngIf="showTable.adivina" class="visor">
   <p class="titulo tag">&nbsp;Adivina el número</p>
   <table class="table table-condensed table-bordered table-hover titulo">
@@ -50,7 +51,7 @@
     <tbody>
       <tr *ngFor="let juego of listado | tipoJuego: {juego: 'BlackJack'}">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.gano?'Si':'No'}} </td>
+        <td [ngClass]="juego.gano?'btn-success':''">{{juego.gano?'Si':'No'}} </td>
         <td>{{juego.puntaje}} </td>
         <td>{{juego.ganadas}} </td>
         <td>{{juego.empates}} </td>
@@ -66,13 +67,17 @@
     <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
       <tr>
         <th>Usuario</th>
-        <th>datos</th>
+        <th>Ganadas</th>
+        <th>Empatadas</th>
+        <th>Perdidas</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let juego of listado | tipoJuego: {juego: 'PPT'}">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.datos}} </td>
+        <td>{{juego.ganadas}} </td>
+        <td>{{juego.empatadas}} </td>
+        <td>{{juego.perdidas}} </td>
       </tr>
     </tbody>
   </table>
@@ -84,13 +89,17 @@
     <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
       <tr>
         <th>Usuario</th>
-        <th>datos</th>
+        <th>Ganó</th>
+        <th>Perdió</th>
+        <th>Empató</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Tateti'}">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.datos}} </td>
+        <td [ngClass]="juego.gano?'btn-success':''">{{juego.gano?'Si':'No'}} </td>
+        <td [ngClass]="juego.perdio?'btn-danger':''">{{juego.perdio?'Si':'No'}} </td>
+        <td [ngClass]="juego.empato?'btn-warning':''">{{juego.empato?'Si':'No'}} </td>
       </tr>
     </tbody>
   </table>
@@ -116,3 +125,4 @@
 
 <app-decorations></app-decorations>
 <!-- </div> -->
+</div>
