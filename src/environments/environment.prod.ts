@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
-  backendRoute: 'http://localhost/',
-  frontendRoute: 'http://localhost/'
+  backendRoute: '/',  //backendRoute: 'http://www.hnkr.tech/',
+  //backendRoute: 'http://localhost/',
+  frontendRoute: '/'
 };

@@ -5,13 +5,17 @@
     <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
       <tr>
         <th>Usuario</th>
-        <th>gano</th>
+        <th>Número</th>
+        <th>Tiempo</th>
+        <th>Intentos</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Adivina'}">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.gano}} </td>
+        <td>{{juego.numero}} </td>
+        <td>{{juego.tiempo}} </td>
+        <td>{{juego.intentos}} </td>
       </tr>
     </tbody>
   </table>
@@ -23,13 +27,17 @@
     <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
       <tr>
         <th>Usuario</th>
-        <th>datos</th>
+        <th>Ganó</th>
+        <th>Palabra</th>
+        <th>Intentos</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Anagrama'}">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.datos}} </td>
+        <td [ngClass]="juego.gano?'btn-success':''">{{juego.gano?'Si':'No'}} </td>
+        <td>{{juego.palabra}} </td>
+        <td>{{juego.intentos}} </td>
       </tr>
     </tbody>
   </table>

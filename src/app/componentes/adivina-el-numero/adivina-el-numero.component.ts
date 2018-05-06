@@ -1,6 +1,7 @@
 
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import { JuegoAdivina } from '../../clases/juego-adivina'
+import { JuegoServiceService } from "../../servicios/juego-service.service";
 
 @Component({
   selector: 'app-adivina-el-numero',
@@ -15,8 +16,8 @@ export class AdivinaElNumeroComponent implements OnInit {
   contador:number;
   ocultarVerificar:boolean;
  
-  constructor() { 
-    this.nuevoJuego = new JuegoAdivina();
+  constructor(public miServicio: JuegoServiceService) { 
+    this.nuevoJuego = new JuegoAdivina(this.miServicio);
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
   }
@@ -24,18 +25,18 @@ export class AdivinaElNumeroComponent implements OnInit {
     this.nuevoJuego.generarnumero();
     this.contador=0;
   }
-  verificar()
-  {
+
+  verificar() {
     this.contador++;
-    this.ocultarVerificar=true;
+    this.ocultarVerificar = true;
     //console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
       this.enviarJuego.emit(this.nuevoJuego);
-      this.MostarMensaje("Sos un Genio!!!",true);
+      this.MostrarMensaje("Sos un Genio!!!",true);
       this.nuevoJuego.numeroSecreto=0;
 
-    }else{
+    } else {
 
       let mensaje:string;
       switch (this.contador) {
@@ -62,14 +63,14 @@ export class AdivinaElNumeroComponent implements OnInit {
             mensaje="Ya le erraste "+ this.contador+" veces";
           break;
       }
-      this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
+      this.MostrarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
      
 
     }
     //console.info("numero Secreto:",this.nuevoJuego.gano);  
   }  
 
-  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+  MostrarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
     this.Mensajes=mensaje;    
     var x = document.getElementById("snackbar");
     if(ganador)
@@ -85,8 +86,10 @@ export class AdivinaElNumeroComponent implements OnInit {
      }, 3000);
     console.info("objeto",x);
   
-   }  
+  }
+
   ngOnInit() {
+
   }
 
 }

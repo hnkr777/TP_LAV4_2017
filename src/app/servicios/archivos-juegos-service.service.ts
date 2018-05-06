@@ -27,7 +27,7 @@ export class ArchivosJuegosServiceService {
      // console.log( data );
       return data;
     }, err => {
-      console.log( err );
+      console.log( 'Error: '+err );
     })
   }
 

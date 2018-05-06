@@ -4,7 +4,7 @@
     /* text-align: center; */
     align-items: left;
 
-    display: inline-block;
+    display: inline-block!important;
     margin: auto;
 }
 
@@ -21,8 +21,8 @@
 .boton {
     position: inherit;
     cursor: pointer;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     text-align: center;
     margin: 5px;
     background-size: cover;
@@ -86,10 +86,19 @@
     text-align: center!important;
     margin-top: 30px;
     padding: 25px;
+    align-self: center;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
 }
 
 .container {
     height: 100vh;
+    align-self: center;
+    /* width: 100%; */
+    
 }
 
 .rotacion {

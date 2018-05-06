@@ -2,70 +2,72 @@
 <!--app-menu></app-menu-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div id='content' style="text-align: center;">
-  <h4 class="titulo">
-    {{nuevoJuego.titulo}}!
-  </h4>
-
-  <div id="juego">
-
-    <h4 id='lblCrupier' style="color: white;">Puntos: {{nuevoJuego.jugadores[0].puntaje}} &nbsp;
-      <i class="fa fa-spinner fa-spin"></i> Suma del crupier: {{nuevoJuego.sumaCrupier}}</h4>
-    <img id="info" alt="Información" data-toggle="modal" data-target="#myModal" title="Reglas del juego">
-    <br>
-    <h5 style="color: yellow; font-size: large;"> Quedan en el mazo {{nuevoJuego.mazo.cartasRestantes}} cartas</h5>
-
-    <div class="row" id="panel-board">
-
-      <div class="parent-box" id="playboard-0">
-
-      </div>
-
-      <br>
-
-      <div class="parent-box" id="space">
-        <!-- <div id="snackbar">{{Mensajes}}</div> -->
-        <div class="cont">
-          <div class="PopUpMsg">
-            <b>
-              <h4 (click)="guardar()" id="lblMensaje"></h4>
-            </b>
-          </div>
-        </div>
-      </div>
-
-      <br>
-
-      <div class="parent-box" id="playboard-1">
-
-      </div>
-
-    </div>
-    <h4 id='lblJugador' style="color: white;">Puntos: {{nuevoJuego.jugadores[1].puntaje}} &nbsp;
-      <i class="fa fa-spinner fa-spin"></i> Suma del jugador: {{nuevoJuego.jugadores[1].suma}}</h4>
-
-    <h4>
-      <div class="row">
-        <div class="col-xs-4">
-          <button *ngIf="nuevoJuego.manoTerminada " (click)="repartir()" class="btn btn-success btn-xs btn-panel" id="btnRepartir"
-            data-toggle="tooltip" title="Empezar una mano nueva">Repartir</button>
-        </div>
-
-        <div class="col-xs-4">
-          <button *ngIf="!nuevoJuego.manoTerminada " (click)="pedir()" class="btn btn-primary btn-xs btn-panel" id="btnPedir" data-toggle="tooltip"
-            title="Pedir otra carta del mazo">Pedir</button>
-        </div>
-
-        <div class="col-xs-4">
-          <button *ngIf="!nuevoJuego.manoTerminada " (click)="plantarse()" class="btn btn-warning btn-xs btn-panel" id="btnPlantarse"
-            data-toggle="tooltip" title="Aceptar las cartas y jugar">Plantarse</button>
-        </div>
-      </div>
+<div class="container wrapper">
+  <div id='content' style="text-align: center;">
+    <h4 class="titulo">
+      {{nuevoJuego.titulo}}!
     </h4>
 
-  </div>
-</div>
+    <div id="juego">
 
+      <h4 id='lblCrupier' style="color: white;">Puntos: {{nuevoJuego.jugadores[0].puntaje}} &nbsp;
+        <i class="fa fa-spinner fa-spin"></i> Suma del crupier: {{nuevoJuego.sumaCrupier}}</h4>
+      <img id="info" alt="Información" data-toggle="modal" data-target="#myModal" title="Reglas del juego">
+      <br>
+      <h5 style="color: yellow; font-size: large;"> Quedan en el mazo {{nuevoJuego.mazo.cartasRestantes}} cartas</h5>
+
+      <div class="row" id="panel-board">
+
+        <div class="parent-box" id="playboard-0">
+
+        </div>
+
+        <br>
+
+        <div class="parent-box" id="space">
+          <!-- <div id="snackbar">{{Mensajes}}</div> -->
+          <div class="cont">
+            <div class="PopUpMsg">
+              <b>
+                <h4 (click)="guardar()" id="lblMensaje"></h4>
+              </b>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="parent-box" id="playboard-1">
+
+        </div>
+
+      </div>
+      <h4 id='lblJugador' style="color: white;">Puntos: {{nuevoJuego.jugadores[1].puntaje}} &nbsp;
+        <i class="fa fa-spinner fa-spin"></i> Suma del jugador: {{nuevoJuego.jugadores[1].suma}}</h4>
+
+      <h4>
+        <div class="row">
+          <div class="col-xs-4">
+            <button *ngIf="nuevoJuego.manoTerminada " (click)="repartir()" class="btn btn-success btn-xs btn-panel" id="btnRepartir"
+              data-toggle="tooltip" title="Empezar una mano nueva">Repartir</button>
+          </div>
+
+          <div class="col-xs-4">
+            <button *ngIf="!nuevoJuego.manoTerminada " (click)="pedir()" class="btn btn-primary btn-xs btn-panel" id="btnPedir" data-toggle="tooltip"
+              title="Pedir otra carta del mazo">Pedir</button>
+          </div>
+
+          <div class="col-xs-4">
+            <button *ngIf="!nuevoJuego.manoTerminada " (click)="plantarse()" class="btn btn-warning btn-xs btn-panel" id="btnPlantarse"
+              data-toggle="tooltip" title="Aceptar las cartas y jugar">Plantarse</button>
+          </div>
+        </div>
+      </h4>
+
+    </div>
+  </div>
+  <app-decorations></app-decorations>
+</div>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">

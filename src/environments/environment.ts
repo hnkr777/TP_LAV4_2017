@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  backendRoute: 'http://localhost/',
+  //backendRoute: '/', // para produccion
+  backendRoute: 'http://localhost/',  // para test local con angular http://localhost:
   frontendRoute: '/'
 };
 

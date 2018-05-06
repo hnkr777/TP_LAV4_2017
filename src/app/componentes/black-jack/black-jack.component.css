@@ -106,7 +106,7 @@
     max-width: 800px;
     border: 10px solid #f1f1f1;
     padding: 10px;
-    background:rgb(63, 63, 63);
+    background:rgba(63, 63, 63, 0.568);
     box-shadow: 0px 0px 50px 20px rgb(0, 0, 0);
     border-radius: 15px;
     display: block;
@@ -146,7 +146,7 @@
 
 #panel-board {
     min-height: 390px;
-    background-color: rgb(3, 117, 60);
+    background-color: rgba(3, 117, 60, 0.8);
     position: relative;
     margin: auto;
     border-radius: 20px;

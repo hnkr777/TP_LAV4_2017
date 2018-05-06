@@ -1,5 +1,6 @@
 
 import { Juego } from '../clases/juego'
+import { JuegoServiceService } from '../servicios/juego-service.service';
 
 export class JuegoAgilidad extends Juego {
 
@@ -10,7 +11,7 @@ export class JuegoAgilidad extends Juego {
 	eleccionUsuario:number;
  	solucion:number;
 
- 	constructor() {
+ 	constructor(miService: JuegoServiceService) {
  		super('Velocidad', 'Agilidad y velocidad aritmética');
     }
     

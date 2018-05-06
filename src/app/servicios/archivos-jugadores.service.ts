@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MiHttpService } from './mi-http/mi-http.service'; 
 import { Headers, RequestOptions } from '@angular/http';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ArchivosJugadoresService {
@@ -18,6 +18,7 @@ export class ArchivosJugadoresService {
     let token = this.getToken();
     headers.append('token', token);
     let options = new RequestOptions({ headers: headers });
+    console.log("Archivo jugadores...["+this.api+ruta+']');
 
     if(this.getToken() != '') {
       

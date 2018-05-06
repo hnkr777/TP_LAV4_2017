@@ -1,8 +1,8 @@
 
 form {
-    border: 10px solid #f1f1f1;
+    border: 10px solid #f1f1f181;
     padding: 10px;
-    background:gray;
+    background-color: rgba(40, 40, 40, 0.38);
 }
 
 input[type=text], input[type=password] {
@@ -12,6 +12,7 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: 8px;
 }
 
 button {
@@ -117,9 +118,43 @@ span.psw {
     to {bottom: 0; opacity: 0;}
 }
 
+.container {
+    padding-top: 50px;
+}
+
 .panel {
     width: fit-content;
     align-self: center;
     text-align: center;
-    
+    margin: auto;
+    background-color: transparent;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* margin-top: 10%; */
+    border-radius: 25px;
+}
+
+.head-top {
+    text-align: center;
+    /* background-color: rgba(40, 40, 40, 0.38); */
+    background-color: transparent;
+
+}
+
+.wrapper {
+    max-width: 100%!important;
+    width: 100%!important;
+    overflow-y: hidden!important;
+    padding: unset;
+    padding-top: 20px;
+}
+
+.content {
+    background-color: rgba(40, 40, 40, 0.38);
+    height: 100%!important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: hidden!important;
+
 }
