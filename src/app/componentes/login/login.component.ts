@@ -14,13 +14,9 @@ import { isDefined } from '@angular/compiler/src/util';
 export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
-  nombre: string = '';
   email: string = '';
-  cuit: number = 0;
-  sexo: string = 'm';
   clave: string = '';
-  clave2: string = '';
-  terminos: boolean = false;
+  recordarme: boolean = false;
 
   token: any;
 
@@ -36,11 +32,15 @@ export class LoginComponent implements OnInit {
     private xhr: MiHttpService,
     private route: ActivatedRoute,
     private router: Router) {
-      this.progreso = 0;
-      this.ProgresoDeAncho = "0%";
+      this.recordarme = false;
   }
 
   ngOnInit() {
+    let token = this.getToken();
+    if(token != false) {
+      this.router.navigate(['/Principal']);
+    }
+    
   }
 
   logadmin() {
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
   completado(res: Response) {
     console.info('¡Acceso concedido!');
-    localStorage.setItem('token', JSON.parse(JSON.stringify(res.json())).token);
+    sessionStorage.setItem('token', JSON.parse(JSON.stringify(res.json())).token);
     return res.json() || {};
   }
 
@@ -67,6 +67,10 @@ export class LoginComponent implements OnInit {
 
   ingresar() {
     this.xhr.httpPostS(environment.backendRoute + 'login', {email: this.email, clave: this.clave}, this.completado, this.error, ()=>{
+      if(this.recordarme) {
+        localStorage.setItem('token', sessionStorage.getItem('token'));
+        sessionStorage.removeItem('token');
+      }
       this.router.navigate(['/Principal']);
     });
   }
@@ -87,8 +91,8 @@ export class LoginComponent implements OnInit {
     return false;
   }
 
-  toggleTerminos() {
-    this.terminos = !this.terminos;
+  toggleRecordarme() {
+    this.recordarme = !this.recordarme;
   }
 
 }

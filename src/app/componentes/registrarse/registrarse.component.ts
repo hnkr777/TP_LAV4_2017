@@ -62,7 +62,16 @@ export class RegistrarseComponent implements OnInit {
   }
 
   registrarse() {
-    if(this.clave!=this.clave2) return;
+    if(this.clave!=this.clave2) {
+      console.error('Las claves deben coincidir.');
+      return;
+    }
+
+    if(!this.terminos) {
+      console.error('Debe aceptar los términos del servicio para poder registrarse.');
+      return;
+    }
+
     this.xhr.httpPostS(environment.backendRoute+'apirestjugadores/altausuario', {
       nombre: this.nombre,
       email: this.email,

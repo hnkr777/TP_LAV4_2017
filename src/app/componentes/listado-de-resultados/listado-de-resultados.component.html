@@ -119,13 +119,17 @@
     <thead style="color: white; background-color: rgba(40, 40, 48, 0.8)">
       <tr>
         <th>Usuario</th>
-        <th>datos</th>
+        <th>Ganó</th>
+        <th>Solución</th>
+        <th>Intentos</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let juego of listado | tipoJuego: {juego: 'Velocidad'}">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.datos}} </td>
+        <td [ngClass]="juego.gano?'btn-success':''">{{juego.gano?'Si':'No'}} </td>
+        <td>{{juego.solucion}} </td>
+        <td>{{juego.intentos}} </td>
       </tr>
     </tbody>
   </table>
